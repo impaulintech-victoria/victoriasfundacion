@@ -5,7 +5,7 @@ const heroBgImage = () => {
     <>
       <div id='hero-background' className='relative flex justify-end w-full'>
         <Image
-          src='/landing/landing-image.png'
+          src='/landing/hero-image.png'
           alt='Hero Background'
           width={1920}
           height={1080}
