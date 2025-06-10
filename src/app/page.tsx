@@ -1,3 +1,9 @@
+import HeroLandingContainer from '@/components/pages/home/hero/HeroLandingContainer'
+
 export default function Home() {
-  return <div className='text-h1'>Hello World</div>
+  return (
+    <div id='main-container' className='flex flex-col w-full'>
+      <HeroLandingContainer />
+    </div>
+  )
 }
