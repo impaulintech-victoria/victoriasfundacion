@@ -1,6 +1,6 @@
 'use client'
 
-import HeroSection from '@/components/pages/home/hero'
+import HeroSection from '@/components/common/Hero/HeroSection'
 
 const HeroLandingContainer = () => {
   const handlePrimaryClick = async () => {
