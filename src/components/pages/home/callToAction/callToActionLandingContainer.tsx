@@ -1,21 +1,16 @@
-import FadedBgImage from "@/components/common/FadedBgImage";
-import React from "react";
+import HeroCenterTextButton from '@/components/common/Hero/HeroCenterTextButton'
 
 const CallToActionLandingContainer = () => {
   return (
-    <div className="relative px-5 py-8 2xl:py-14 w-full">
-      <FadedBgImage
-        src={"/landing/achievements/landing-achievement-bg.png"}
-        alt="achievement-bg"
-        bgColor="bg-primary"
-      />
-      <div className="z-10 relative flex flex-col justify-center items-center gap-7 2xl:gap-14 h-full">
-        <h2 className="bg-accent px-4 py-1 border border-primary rounded-full text-base 2xl:text-lg">
-          Wat we bereiken
-        </h2>
-      </div>
-    </div>
-  );
-};
+    <HeroCenterTextButton
+      tag='Make a Difference for Families'
+      header='Help ons om meer gezinnen te ondersteunen'
+      description='Elke bijdrage, groot of klein, maakt een verschil in het leven van gezinnen die onze hulp nodig hebben. Samen kunnen we voor meer mensen een hoopvolle toekomst creëren.'
+      buttonLabel='Word donateur'
+      imageSrc='/landing/cta-image.png'
+      imageOpacity={0.95}
+    />
+  )
+}
 
-export default CallToActionLandingContainer;
+export default CallToActionLandingContainer
