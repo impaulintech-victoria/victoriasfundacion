@@ -1,6 +1,6 @@
 import MissionSection from '.'
 
-const missionLandingContainer = () => {
+const MissionLandingContainer = () => {
   return (
     <MissionSection
       tag='Onze missie'
@@ -13,4 +13,4 @@ const missionLandingContainer = () => {
   )
 }
 
-export default missionLandingContainer
+export default MissionLandingContainer
