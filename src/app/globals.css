@@ -16,6 +16,7 @@
 	--font-size-sm: 0.875rem;
 
 	--font-family-overlock: "Overlock", sans-serif;
+	--font-inter: "Inter", sans-serif;
 }
 
 @layer utilities {
@@ -43,6 +44,10 @@
 
 .font-overlock {
 	font-family: var(--font-overlock), serif;
+}
+
+.font-inter {
+	font-family: var(--font-inter), serif;
 }
 
 @theme inline {
@@ -150,10 +155,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Overlock } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/layout/Navbar'
 
 const overlock = Overlock({
   subsets: ['latin'],
@@ -57,7 +58,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`bg-base text-primary ${overlock.variable}`}>
-      <body className='font-overlock antialiased'>{children}</body>
+      <body className='font-overlock antialiased'>
+        <Navbar />
+        {children}
+      </body>
     </html>
   )
 }
