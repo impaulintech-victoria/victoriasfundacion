@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-const heroBgImage = () => {
+const HeroBgImage = ({ img }: { img: string }) => {
   return (
     <>
       <div id='hero-background' className='relative flex justify-end w-full'>
         <Image
-          src='/landing/hero-image.png'
+          src={img}
           alt='Hero Background'
           width={1920}
           height={1080}
@@ -18,4 +18,4 @@ const heroBgImage = () => {
   )
 }
 
-export default heroBgImage
+export default HeroBgImage
