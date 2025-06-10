@@ -1,4 +1,4 @@
-import HeroLandingContainer from '@/components/pages/home/hero/HeroLandingContainer'
+import HeroLandingContainer from '@/components/pages/home/Hero/HeroLandingContainer'
 import MissionLandingContainer from '@/components/pages/home/mission/missionLandingContainer'
 
 export default function Home() {
