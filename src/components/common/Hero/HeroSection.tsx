@@ -44,7 +44,9 @@ const HeroSection = (props: HeroProps) => {
     <section
       id='hero-content'
       className={`z-0 relative flex 2xl:flex-row flex-col justify-end sm:justify-center bg-primary w-full overflow-hidden ${
-        height === 'lg' ? 'h-[650px]' : 'h-[450px]'
+        height === 'lg'
+          ? 'h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] 2xl:h-[650px]'
+          : 'h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] 2xl:h-[550px]'
       }`}
     >
       <div
