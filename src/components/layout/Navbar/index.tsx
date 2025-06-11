@@ -82,9 +82,11 @@ const Navbar = () => {
           <li key={label} className='group relative'>
             {dropdown && submenu ? (
               <>
-                <button className='flex items-center text-[20px] text-[#70142E] hover:text-[#FFBFA0] cursor-pointer bg-transparent'>
+                <button className='group flex items-center text-[20px] text-[#70142E] hover:text-[#FFBFA0] cursor-pointer bg-transparent'>
                   {label}
-                  <ArrowDown className='ml-1 inline-block h-4 w-4 text-[#70142E]' />
+                  <span className='ml-1 inline-block transition-transform duration-200 group-hover:rotate-180'>
+                    <ArrowDown className='h-4 w-4 text-[#70142E]' />
+                  </span>
                 </button>
                 <div className='absolute left-0 top-full mt-0 hidden min-w-[200px] rounded-xl border bg-white p-2 shadow-md group-hover:block z-20 w-[250px]'>
                   <motion.div
