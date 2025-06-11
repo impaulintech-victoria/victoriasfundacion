@@ -51,16 +51,20 @@ const Navbar = () => {
   ]
 
   useEffect(() => {
-    const cookieLocale = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('VICTORIAS_LOCALE'))
-      ?.split('=')[1]
+    const cookieLocale =
+      document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('VICTORIAS_LOCALE'))
+        ?.split('=')[1] ?? 'nl'
 
-    if (cookieLocale) return setLocale(cookieLocale)
-    const browserLocale = navigator.language.slice(0, 2)
-    setLocale(browserLocale)
-    document.cookie = `VICTORIAS_LOCALE=${browserLocale};`
-    router.refresh()
+    if (cookieLocale) {
+      setLocale(cookieLocale)
+    } else {
+      const browserLocale = navigator.language.slice(0, 2)
+      setLocale(browserLocale)
+      document.cookie = `VICTORIAS_LOCALE=${browserLocale};`
+      router.refresh()
+    }
   }, [router])
 
   const handleLocaleChange = (newLocale: Lang) => {
@@ -70,7 +74,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='bg-white w-full px-4 flex items-center justify-between xl:justify-center xl:gap-40 h-20 shadow-sm font-inter relative'>
+    <nav className='bg-white w-full px-4 flex items-center justify-between xl:justify-center xl:gap-40 h-20 shadow-sm relative'>
       <Logo />
 
       <ul className='hidden xl:flex items-center gap-6 font-medium'>
@@ -78,7 +82,7 @@ const Navbar = () => {
           <li key={label} className='group relative'>
             {dropdown && submenu ? (
               <>
-                <button className='flex items-center text-[18px] text-[#70142E] hover:text-[#FFBFA0] cursor-pointer bg-transparent'>
+                <button className='flex items-center text-[20px] text-[#70142E] hover:text-[#FFBFA0] cursor-pointer bg-transparent'>
                   {label}
                   <ArrowDown className='ml-1 inline-block h-4 w-4 text-[#70142E]' />
                 </button>
@@ -92,7 +96,7 @@ const Navbar = () => {
                       <Link
                         key={item.label}
                         href={item.href}
-                        className='block hover:text-[#FFBFA0] text-[18px] w-full px-4 py-2 text-left text-[#70142E] hover:bg-gray-100 rounded-md cursor-pointer'
+                        className='block hover:text-[#FFBFA0] text-[20px] w-full px-4 py-2 text-left text-[#70142E] hover:bg-gray-100 rounded-md cursor-pointer'
                       >
                         {item.label}
                       </Link>
@@ -103,7 +107,7 @@ const Navbar = () => {
             ) : (
               <Link
                 href={href}
-                className={`text-[18px] transition-colors hover:text-[#FFBFA0] ${
+                className={`text-[20px] transition-colors hover:text-[#FFBFA0] ${
                   highlight ? 'text-[#70142E]' : 'text-[#70142E]'
                 } cursor-pointer`}
               >
