@@ -8,37 +8,37 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import EN from '@/assets/icon/flags/EN'
-import ES from '@/assets/icon/flags/ES'
-import NL from '@/assets/icon/flags/NL'
+import en from '@/assets/icon/flags/EN'
+import es from '@/assets/icon/flags/ES'
+import nl from '@/assets/icon/flags/NL'
 
-type Lang = 'NL' | 'ES' | 'EN'
+type Lang = 'nl' | 'es' | 'en'
 
 interface LanguageSwitcherProps {
-  lang: Lang
-  setLang: (lang: Lang) => void
+  locale: Lang
+  setLocale: (lang: Lang) => void
   className?: string
 }
 
 const FLAGS: Record<Lang, React.ElementType> = {
-  NL,
-  ES,
-  EN,
+  nl,
+  es,
+  en,
 }
 
 const LABELS: Record<Lang, string> = {
-  NL: 'Nederlands',
-  ES: 'Español',
-  EN: 'English',
+  nl: 'Nederlands',
+  es: 'Español',
+  en: 'English',
 }
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
-  lang,
-  setLang,
+  locale,
+  setLocale,
   className = '',
 }) => {
-  const FlagIcon = FLAGS[lang]
-  const availableLangs = Object.keys(FLAGS) as Lang[]
+  const FlagIcon = FLAGS[locale]
+  const availableLocales = Object.keys(FLAGS) as Lang[]
 
   return (
     <DropdownMenu>
@@ -49,17 +49,17 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           className={`cursor-pointer flex items-center gap-2 px-3 py-1.5 text-xs rounded-full bg-[#f3dce2] text-[#70142e] hover:bg-[#f7e8eb] ${className}`}
         >
           <FlagIcon className='w-4 h-auto rounded-sm' />
-          {lang}
+          <p className='uppercase'>{locale}</p>
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align='end' className='w-36'>
-        {availableLangs.map((option) => {
+        {availableLocales.map((option) => {
           const OptionFlag = FLAGS[option]
           return (
             <DropdownMenuItem
               key={option}
-              onClick={() => setLang(option)}
+              onClick={() => setLocale(option)}
               className='cursor-pointer flex items-center gap-2 px-2 py-1.5 text-sm text-[#70142e] hover:bg-[#f3dce2] focus:bg-[#f3dce2]'
             >
               <OptionFlag className='w-4 h-auto rounded-sm' />
