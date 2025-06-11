@@ -5,7 +5,7 @@ import MissionLandingContainer from '@/components/pages/home/mission/missionLand
 
 export default function Home() {
   return (
-    <div id='main-container' className='flex flex-col gap-10 w-full'>
+    <div id='main-container' className='flex flex-col w-full'>
       <HeroLandingContainer />
       <MissionLandingContainer />
       <AchievementsLandingContainer />

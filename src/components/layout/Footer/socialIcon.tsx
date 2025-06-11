@@ -2,21 +2,12 @@ import { LucideIcon } from 'lucide-react'
 
 interface SocialIconProps {
   icon: LucideIcon
-  strokeWidth?: number
-  strokeColor?: string
 }
 
-function SocialIcon({
-  icon: Icon,
-  strokeWidth = 1,
-  strokeColor = 'black',
-}: SocialIconProps) {
+function SocialIcon({ icon: Icon }: SocialIconProps) {
   return (
-    <div className='bg-[#F5E1E6] p-2 border border-primary rounded-full'>
-      <Icon
-        className={`fill-primary stroke-${strokeColor} size-4`}
-        strokeWidth={strokeWidth}
-      />
+    <div className='bg-[#F5E1E6] hover:bg-accent/60 hover:shadow-md p-2 border border-primary rounded-full transition-all duration-200 cursor-pointer'>
+      <Icon className={`fill-none stroke-primary stroke-2 size-4`} />
     </div>
   )
 }

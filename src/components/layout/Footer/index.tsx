@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Facebook, Instagram, Linkedin } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../Navbar/logo'
 import FooterLinks, { FooterSection } from './footerLinks'
@@ -81,7 +82,16 @@ function FooterDesktop({
                       key={link.label}
                       className='text-muted text-xs lg:text-sm xl:text-base'
                     >
-                      <Link href={link.href}>{link.label}</Link>
+                      {section.title === 'Bedrijfsgegevens' ? (
+                        <p>{link.label}</p>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="after:bottom-0 after:left-0 after:absolute relative after:bg-accent after:w-0 hover:after:w-full after:h-[1px] hover:text-accent after:content-[''] transition-all after:transition-all duration-200 after:duration-300"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -93,7 +103,7 @@ function FooterDesktop({
       <span className='bg-black w-full h-[2px]' />
       <section id='footer-bottom' className='flex flex-row justify-between'>
         <p className='text-muted text-xs sm:text-sm lg:text-base 2xl:text-lg'>
-          © 2025 Stichting Victoria's Origen. Alle rechten voorbehouden.
+          © 2025 Stichting Victoria's Origen. Alle rechten voorbehouden.
         </p>
         <FooterSocials />
       </section>
@@ -115,7 +125,7 @@ function FooterMobile({ footerSections }: { footerSections: FooterSection[] }) {
         <p className='hover:underline'>Sitemap</p>
       </section>
       <p className='mx-auto max-w-[200px] text-muted text-xs sm:text-sm text-center'>
-        © 2025 Stichting Victoria's Origen. Alle rechten voorbehouden.
+        © 2025 Stichting Victoria's Origen. Alle rechten voorbehouden.
       </p>
       <span className='self-center bg-black w-[250px] sm:w-[350px] h-[2px]' />
       <FooterSocials />
@@ -136,9 +146,17 @@ function FooterSocials() {
       className='flex justify-center items-center gap-2 mt-3'
     >
       <SocialIcon icon={Linkedin} />
-      <SocialIcon icon={Twitter} />
-      <SocialIcon icon={Facebook} strokeWidth={1.5} />
-      <SocialIcon icon={Instagram} strokeColor='[#F5E1E6]' />
+      <div className='bg-[#F5E1E6] p-2 border border-primary rounded-full'>
+        <Image
+          src='/assets/socials/twitter-x.svg'
+          alt='X'
+          width={16}
+          height={16}
+          className=''
+        />
+      </div>
+      <SocialIcon icon={Facebook} />
+      <SocialIcon icon={Instagram} />
     </section>
   )
 }
