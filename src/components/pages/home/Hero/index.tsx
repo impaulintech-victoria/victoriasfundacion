@@ -1,6 +1,6 @@
 'use client'
 
-import HeroBgImage from '@/components/pages/home/hero/HeroBgImg'
+import HeroBgImage from '@/components/pages/home/Hero/HeroBgImg'
 import { Button } from '@/components/ui/button'
 
 interface HeroProps {
