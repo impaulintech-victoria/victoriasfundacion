@@ -11,13 +11,16 @@
 
 	--font-size-h1: 6rem;
 	--font-size-h2: 3rem;
-	--font-size-lg: 1.125rem;
-	--font-size-md: 1rem;
-	--font-size-sm: 0.875rem;
+
 
 	--font-family-overlock: "Overlock", sans-serif;
 	--font-inter: "Inter", sans-serif;
 }
+
+/* Removed these for now because it interferes with the tailwindcss font size classes */
+/* --font-size-lg: 1.125rem;
+	--font-size-md: 1rem;
+	--font-size-sm: 0.875rem; */
 
 @layer utilities {
 	.text-h1 {
@@ -28,7 +31,7 @@
 		font-size: var(--font-size-h2);
 		line-height: 1.2;
 	}
-	.text-lg {
+	/* .text-lg {
 		font-size: var(--font-size-lg);
 		line-height: 1.5;
 	}
@@ -39,7 +42,7 @@
 	.text-sm {
 		font-size: var(--font-size-sm);
 		line-height: 1.5;
-	}
+	} */
 }
 
 .font-overlock {
