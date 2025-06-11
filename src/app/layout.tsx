@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Overlock } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 
 const overlock = Overlock({
   subsets: ['latin'],
@@ -51,16 +53,21 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const messages = await getMessages()
+  const locale = await getLocale()
+
   return (
-    <html lang='en' className={`bg-base text-primary ${overlock.variable}`}>
+    <html lang={locale} className={`bg-base text-primary ${overlock.variable}`}>
       <body className='font-overlock antialiased'>
-        <Navbar />
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   )

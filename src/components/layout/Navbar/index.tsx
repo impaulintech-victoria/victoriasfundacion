@@ -3,13 +3,15 @@
 import ArrowDown from '@/assets/icon/ArrowDown'
 import HamburgerMenu from '@/assets/icon/HamburgerMenu'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { LanguageSwitcher } from './languageSwitcher'
 import Logo from './logo'
 import SideBar from './sideBar'
 
-export type Lang = 'NL' | 'ES' | 'EN'
+export type Lang = 'nl' | 'es' | 'en'
 
 interface SubMenuItem {
   label: string
@@ -24,27 +26,48 @@ export interface MenuItem {
   submenu?: SubMenuItem[]
 }
 
-const menuItems: MenuItem[] = [
-  { label: 'Home', href: '/', highlight: true },
-  {
-    label: 'Over de Stichting',
-    href: '#',
-    dropdown: true,
-    submenu: [
-      { label: 'Over de Stichting', href: '/over-de-stichting' },
-      { label: 'Ons Team', href: '/ons-team' },
-      { label: 'ANBI Transparantie', href: '/anbi-transparantie' },
-      { label: 'Jaarstukken', href: '/jaarstukken' },
-    ],
-  },
-  { label: 'Steun een Gezin', href: '/steun-een-gezin' },
-  { label: 'Projecten', href: '/projecten' },
-  { label: 'Contact', href: '/contact' },
-]
-
 const Navbar = () => {
-  const [lang, setLang] = useState<Lang>('NL')
+  const [locale, setLocale] = useState('nl')
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const router = useRouter()
+  const t = useTranslations('home.nav')
+
+  const menuItems: MenuItem[] = [
+    { label: t('home'), href: '/', highlight: true },
+    {
+      label: t('foundation'),
+      href: '#',
+      dropdown: true,
+      submenu: [
+        { label: t('submenu.foundation'), href: '/over-de-stichting' },
+        { label: t('submenu.team'), href: '/ons-team' },
+        { label: t('submenu.transparency'), href: '/anbi-transparantie' },
+        { label: t('submenu.financials'), href: '/jaarstukken' },
+      ],
+    },
+    { label: t('support'), href: '/steun-een-gezin' },
+    { label: t('projects'), href: '/projecten' },
+    { label: t('contact'), href: '/contact' },
+  ]
+
+  useEffect(() => {
+    const cookieLocale = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('VICTORIAS_LOCALE'))
+      ?.split('=')[1]
+
+    if (cookieLocale) return setLocale(cookieLocale)
+    const browserLocale = navigator.language.slice(0, 2)
+    setLocale(browserLocale)
+    document.cookie = `VICTORIAS_LOCALE=${browserLocale};`
+    router.refresh()
+  }, [router])
+
+  const handleLocaleChange = (newLocale: Lang) => {
+    setLocale(newLocale)
+    document.cookie = `VICTORIAS_LOCALE=${newLocale};`
+    router.refresh()
+  }
 
   return (
     <nav className='bg-white w-full px-4 flex items-center justify-between xl:justify-center xl:gap-40 h-20 shadow-sm font-inter relative'>
@@ -92,7 +115,10 @@ const Navbar = () => {
       </ul>
 
       <div className='hidden xl:flex items-center gap-1 rounded-full bg-[#f3dce2] px-1 py-1 text-xs font-semibold'>
-        <LanguageSwitcher lang={lang} setLang={setLang} />
+        <LanguageSwitcher
+          locale={locale as Lang}
+          setLocale={handleLocaleChange}
+        />
       </div>
 
       <button
@@ -118,8 +144,8 @@ const Navbar = () => {
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
         menuItems={menuItems}
-        lang={lang}
-        setLang={setLang}
+        locale={locale as Lang}
+        setLocale={handleLocaleChange}
       />
     </nav>
   )

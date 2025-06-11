@@ -10,14 +10,14 @@ const SideBar = ({
   sidebarOpen,
   setSidebarOpen,
   menuItems,
-  lang,
-  setLang,
+  locale,
+  setLocale,
 }: {
   sidebarOpen: boolean
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
   menuItems: MenuItem[]
-  lang: Lang
-  setLang: (lang: Lang) => void
+  locale: Lang
+  setLocale: (locale: Lang) => void
 }) => {
   return (
     <motion.aside
@@ -29,7 +29,7 @@ const SideBar = ({
     >
       <div className='flex justify-between items-center mb-4'>
         <div className='xl:hidden flex gap-1 rounded-full bg-[#f3dce2] px-2 py-1 text-xs font-semibold self-start'>
-          <LanguageSwitcher lang={lang} setLang={setLang} />
+          <LanguageSwitcher locale={locale} setLocale={setLocale} />
         </div>
         <button
           className='p-2 rounded hover:bg-gray-100 cursor-pointer'
