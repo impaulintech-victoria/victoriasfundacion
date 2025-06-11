@@ -66,6 +66,7 @@ export default async function RootLayout({
       <body className='font-overlock antialiased'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
+          <div className='h-20' />
           {children}
         </NextIntlClientProvider>
       </body>

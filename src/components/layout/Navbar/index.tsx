@@ -74,7 +74,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='bg-white w-full px-4 flex items-center justify-between xl:justify-center xl:gap-40 h-20 shadow-sm relative'>
+    <nav className='bg-white fixed top-0 w-full px-4 flex items-center justify-between xl:justify-center xl:gap-40 h-20 shadow-sm z-50'>
       <Logo />
 
       <ul className='hidden xl:flex items-center gap-6 font-medium'>
