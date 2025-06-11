@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Overlock } from 'next/font/google'
 import './globals.css'
+import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
@@ -68,6 +69,7 @@ export default async function RootLayout({
           <Navbar />
           <div className='h-20' />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

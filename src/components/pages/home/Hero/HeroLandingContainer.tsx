@@ -1,6 +1,6 @@
 'use client'
 
-import HeroSection from '@/components/pages/home/Hero'
+import HeroSection from '@/components/pages/home/hero'
 
 const HeroLandingContainer = () => {
   const handlePrimaryClick = async () => {
@@ -18,7 +18,7 @@ const HeroLandingContainer = () => {
       primaryBtnOnTap={handlePrimaryClick}
       secondaryBtnText='Meer over ons'
       secondaryBtnOnTap={handleSecondaryClick}
-      backgroundImg='/landing/landing-image.png'
+      backgroundImg='/landing/hero-image.png'
       height='lg'
     />
   )
