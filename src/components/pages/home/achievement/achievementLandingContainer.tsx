@@ -1,17 +1,14 @@
-import Image from 'next/image'
+import FadedBgImage from '@/components/common/FadedBgImage'
 import AchievementCard from './achievementCard'
 
 const AchievementsLandingContainer = () => {
   return (
-    <div className='relative px-5 py-8 2xl:py-14 w-full'>
-      <Image
+    <div className='relative px-5 py-8 sm:py-10 lg:py-12 2xl:py-18 xl:py-14 w-full'>
+      <FadedBgImage
         src={'/landing/achievements/landing-achievement-bg.png'}
         alt='achievement-bg'
-        fill
-        className='object-cover'
-        priority
+        bgColor='[#F5E1E6]'
       />
-      <div className='absolute inset-0 bg-[#F5E1E6] opacity-50' />
       <div className='z-10 relative flex flex-col justify-center items-center gap-7 2xl:gap-14 h-full'>
         <h2 className='bg-accent px-4 py-1 border border-primary rounded-full text-base 2xl:text-lg'>
           Wat we bereiken
