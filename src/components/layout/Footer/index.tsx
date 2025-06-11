@@ -146,7 +146,7 @@ function FooterSocials() {
       className='flex justify-center items-center gap-2 mt-3'
     >
       <SocialIcon icon={Linkedin} />
-      <div className='bg-[#F5E1E6] p-2 border border-primary rounded-full'>
+      <div className='bg-[#F5E1E6] hover:bg-accent/60 hover:shadow-md p-2 border border-primary rounded-full transition-all duration-200 cursor-pointer'>
         <Image
           src='/assets/socials/twitter-x.svg'
           alt='X'
