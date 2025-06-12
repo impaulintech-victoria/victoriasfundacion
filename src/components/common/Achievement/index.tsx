@@ -1,10 +1,12 @@
 import FadedBgImage from '@/components/common/FadedBgImage'
+import clsx from 'clsx'
 import Image from 'next/image'
 
 export type AchievementItem = {
   imageSrc: string
   title?: string
   description?: string
+  tag?: string
 }
 
 type AchievementsSectionProps = {
@@ -15,6 +17,7 @@ type AchievementsSectionProps = {
   sectionTitle?: string
   sectionSubtitle?: string
   achievements: AchievementItem[]
+  version?: 'primary' | 'secondary'
 }
 
 const AchievementsSection = ({
@@ -25,11 +28,13 @@ const AchievementsSection = ({
   sectionTitle,
   sectionSubtitle,
   achievements,
+  version = 'primary',
 }: AchievementsSectionProps) => {
   return (
-    <div className='relative px-5 py-8 sm:py-10 lg:py-12 2xl:py-18 xl:py-14 w-full'>
+    <div className='relative px-5 py-32 w-full'>
       <FadedBgImage src={bgImageSrc} alt={bgImageAlt} bgColor={bgColor} />
-      <div className='z-10 relative flex flex-col justify-center items-center gap-7 2xl:gap-14 h-full'>
+
+      <div className='z-10 relative flex flex-col justify-center items-center gap-10 2xl:gap-16'>
         {sectionTagline && (
           <h2 className='bg-accent px-4 py-1 border border-primary rounded-full text-base 2xl:text-lg'>
             {sectionTagline}
@@ -37,14 +42,14 @@ const AchievementsSection = ({
         )}
 
         {(sectionTitle || sectionSubtitle) && (
-          <section className='flex flex-col items-center gap-3'>
+          <section className='flex flex-col items-center gap-4 text-center'>
             {sectionTitle && (
               <h1 className='font-bold text-primary text-4xl 2xl:text-5xl'>
                 {sectionTitle}
               </h1>
             )}
             {sectionSubtitle && (
-              <p className='max-w-xs 2xl:max-w-2xl text-muted text-sm 2xl:text-lg text-center'>
+              <p className='max-w-xl text-muted text-sm sm:text-base 2xl:text-lg'>
                 {sectionSubtitle}
               </p>
             )}
@@ -53,32 +58,45 @@ const AchievementsSection = ({
 
         <section
           id='cards-section'
-          className='flex sm:flex-row flex-col items-stretch gap-3 lg:gap-5 2xl:gap-10 xl:gap-7 h-full'
+          className='flex flex-wrap justify-center gap-5 xl:gap-7 2xl:gap-10 max-w-screen-xl w-full'
         >
-          {achievements.map(({ imageSrc, title, description }, index) => (
+          {achievements.map(({ imageSrc, title, description, tag }, index) => (
             <div
               key={index}
-              id='achievement-card'
-              className='group flex flex-col flex-1 gap-4 bg-white shadow-lg px-3 lg:px-5 2xl:px-7 py-5 lg:py-7 2xl:py-10 border border-black rounded-xl'
+              className={clsx(
+                'relative group flex flex-col items-center gap-4 bg-white shadow-lg px-4 py-6 lg:px-6 lg:py-8 border border-black rounded-xl w-full sm:w-[45%] md:w-[40%] lg:w-[22%] max-w-xs',
+                version === 'secondary' && 'p-4 lg:p-5',
+              )}
             >
+              {version === 'secondary' && tag && (
+                <span className='absolute top-3 right-3 bg-primary text-white text-xs px-3 py-1 rounded-full shadow-sm'>
+                  {tag}
+                </span>
+              )}
+
               <Image
                 src={imageSrc}
                 alt={title || `achievement-${index}`}
-                width={500}
-                height={500}
-                className='items-center group-hover:shadow-md group-hover:rounded-lg w-[250px] lg:w-[300px] 2xl:w-[400px] h-[150px] lg:h-[200px] 2xl:h-[300px] object-cover group-hover:scale-105 transition-all duration-300 ease-in-out'
+                width={220}
+                height={130}
+                className='rounded-md object-cover w-full h-[120px] sm:h-[140px] lg:h-[160px]'
               />
 
-              {title && (
-                <h1 className='font-bold text-primary text-xl lg:text-2xl 2xl:text-4xl text-center group-hover:scale-110 transition-all duration-300 ease-in-out'>
-                  {title}
-                </h1>
-              )}
+              <h3 className='font-bold text-primary text-xl lg:text-2xl text-center'>
+                {title}
+              </h3>
 
               {description && (
-                <section className='flex flex-col items-center gap-2 lg:gap-4 2xl:gap-6'>
-                  <span className='bg-accent border border-primary rounded-full w-[130px] lg:w-[150px] 2xl:w-[200px] group-hover:w-full h-[7px] transition-all duration-300 ease-in-out' />
-                  <p className='max-w-[250px] lg:max-w-sm 2xl:max-w-sm text-muted text-sm lg:text-base 2xl:text-xl text-center'>
+                <section className='flex flex-col items-center gap-2 text-center'>
+                  {version === 'primary' && (
+                    <span className='bg-accent border border-primary rounded-full w-[100px] sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
+                  )}
+                  <p
+                    className={clsx(
+                      'text-muted text-sm sm:text-base max-w-[220px]',
+                      version === 'secondary' && 'mt-2 text-center',
+                    )}
+                  >
                     {description}
                   </p>
                 </section>

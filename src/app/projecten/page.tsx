@@ -6,19 +6,34 @@ import ProjectHeroSection from '@/components/common/Hero'
 const Projecten = () => {
   const achievements = [
     {
-      imageSrc: '/landing/achievements/achievement-card-1.png',
-      title: '100+',
-      description: 'Gezinnen ondersteund met directe hulp en begeleiding',
+      imageSrc: '/assets/images/project/project-Noodhulp Pakketten.png',
+      title: 'Noodhulp Pakketten',
+      description:
+        'Directe ondersteuning met voedsel, kleding en essentiële benodigdheden voor gezinnen in acute nood.',
+      tag: 'Lopend',
     },
     {
-      imageSrc: '/landing/achievements/achievement-card-2.png',
-      title: '5',
-      description: 'Lopende projecten gericht op duurzame verandering',
+      imageSrc: '/assets/images/project/project-Budget Begeleiding Traject.png',
+      title: 'Budget Begeleiding Traject',
+      description:
+        'Individuele begeleidingstrajecten om gezinnen te helpen financieel stabieler te worden.',
+      tag: 'Lopend',
     },
     {
-      imageSrc: '/landing/achievements/achievement-card-3.png',
-      title: '€50K+',
-      description: "Verzameld ten behoeve van ondersteuningsprogramma's",
+      imageSrc:
+        '/assets/images/project/project-Opvoedondersteuning Groepen.png',
+      title: 'Opvoedondersteuning Groepen',
+      description:
+        'Workshops en groepsbijeenkomsten voor ouders om opvoedingsvaardigheden te versterken.',
+      tag: 'Lopend',
+    },
+    {
+      imageSrc:
+        '/assets/images/project/project-Zomerkamp voor Kinderen (Planning).png',
+      title: 'Zomerkamp voor Kinderen (Planning)',
+      description:
+        'Een gepland zomerkamp om kinderen uit kwetsbare gezinnen een onvergetelijke ervaring te bieden.',
+      tag: 'Toekomstig',
     },
   ]
 
@@ -33,7 +48,7 @@ const Projecten = () => {
       <AchievementsSection
         bgImageSrc='/landing/achievements/landing-achievement-bg.png'
         bgImageAlt='achievement-bg'
-        sectionSubtitle='Samen maken we het verschil voor gezinnen die onze steun het hardst nodig hebben.'
+        version='secondary'
         achievements={achievements}
       />
     </div>

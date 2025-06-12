@@ -5,17 +5,17 @@ import MissionLandingContainer from '@/components/pages/home/mission'
 export default function Home() {
   const achievements = [
     {
-      imageSrc: '/landing/achievements/achievement-card-1.png',
+      imageSrc: '/assets/images/landing/achievements/achievement-card-1.png',
       title: '100+',
       description: 'Gezinnen ondersteund met directe hulp en begeleiding',
     },
     {
-      imageSrc: '/landing/achievements/achievement-card-2.png',
+      imageSrc: '/assets/images/landing/achievements/achievement-card-2.png',
       title: '5',
       description: 'Lopende projecten gericht op duurzame verandering',
     },
     {
-      imageSrc: '/landing/achievements/achievement-card-3.png',
+      imageSrc: '/assets/images/landing/achievements/achievement-card-3.png',
       title: '€50K+',
       description: "Verzameld ten behoeve van ondersteuningsprogramma's",
     },
@@ -25,7 +25,7 @@ export default function Home() {
       <HeroLandingContainer />
       <MissionLandingContainer />
       <AchievementsSection
-        bgImageSrc='/landing/achievements/landing-achievement-bg.png'
+        bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
         bgImageAlt='achievement-bg'
         sectionTagline='Wat we bereiken'
         sectionTitle='Onze Impact'
