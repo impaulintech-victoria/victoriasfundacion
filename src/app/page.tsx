@@ -1,6 +1,6 @@
 import AchievementsLandingContainer from '@/components/pages/home/achievement'
 import HeroLandingContainer from '@/components/pages/home/hero'
-import MissionLandingContainer from '@/components/pages/home/mission/missionLandingContainer'
+import MissionLandingContainer from '@/components/pages/home/mission'
 
 export default function Home() {
   return (
