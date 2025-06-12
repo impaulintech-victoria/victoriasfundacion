@@ -98,7 +98,7 @@ const HeroSection = (props: HeroProps) => {
           {description}
         </p>
         <p
-          className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${version === 'primary' ? 'text-white' : 'text-primary'}  text-2xl leading-10 ${
+          className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${version === 'primary' ? 'text-white leading-10' : 'text-primary leading-8'} text-2xl ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
