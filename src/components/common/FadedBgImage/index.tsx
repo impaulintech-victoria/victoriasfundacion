@@ -22,7 +22,7 @@ const FadedBgImage = ({
         src={src}
         alt={alt}
         fill
-        className={cn("object-cover z-0", className)}
+        className={cn("object-cover z-10", className)}
         priority
       />
       <div
