@@ -33,8 +33,6 @@ const Projecten = () => {
       <AchievementsSection
         bgImageSrc='/landing/achievements/landing-achievement-bg.png'
         bgImageAlt='achievement-bg'
-        sectionTagline='Wat we bereiken'
-        sectionTitle='Onze Impact'
         sectionSubtitle='Samen maken we het verschil voor gezinnen die onze steun het hardst nodig hebben.'
         achievements={achievements}
       />
