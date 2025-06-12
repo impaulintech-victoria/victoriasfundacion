@@ -7,6 +7,7 @@ interface CardProps {
   padding?: string
   rounded?: string
   shadow?: boolean
+  isComingSoon?: boolean
 }
 
 const Card = ({
@@ -15,11 +16,19 @@ const Card = ({
   padding = 'p-6',
   rounded = 'rounded-3xl',
   shadow = true,
+  isComingSoon = false,
 }: CardProps) => {
   return (
     <div
-      className={`bg-white ${rounded} ${padding} ${shadow ? 'shadow-[0_10px_30px_rgba(0,0,0,0.05)]' : ''} ${className}`}
+      className={`relative bg-white ${rounded} ${padding} ${
+        shadow ? 'shadow-[0_10px_30px_rgba(0,0,0,0.05)]' : ''
+      } ${className}`}
     >
+      {isComingSoon && (
+        <div className='z-10 absolute inset-0 flex justify-center items-center backdrop-blur-xs p-6 rounded-3xl'>
+          <span className='font-bold text-primary text-xl'>Coming Soon</span>
+        </div>
+      )}
       {children}
     </div>
   )

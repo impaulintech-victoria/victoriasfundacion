@@ -26,7 +26,7 @@ const FadedBgImage = ({
         priority
       />
       <div
-        className={`absolute inset-0 z-5 bg-${bgColor}`}
+        className={`absolute inset-0 z-0 bg-${bgColor}`}
         style={{ opacity: opacity }}
       />
     </div>
