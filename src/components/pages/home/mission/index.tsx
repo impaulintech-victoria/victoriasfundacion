@@ -17,7 +17,7 @@ const MissionSection = (props: MissionSectionProps) => {
   return (
     <section
       id='mission-section'
-      className='flex sm:flex-row flex-col justify-center items-center gap-5 sm:gap-10 md:gap-12 lg:gap-16 2xl:gap-40 xl:gap-16 px-5 py-3 sm:py-5 lg:py-10 2xl:py-14 xl:py-12 w-full h-full'
+      className='flex sm:flex-row flex-col justify-center items-center gap-5 sm:gap-10 md:gap-12 lg:gap-16 2xl:gap-40 xl:gap-16 px-5 py-7 sm:py-9 lg:py-12 2xl:py-14 xl:py-12 w-full h-full'
     >
       {isInverted ? (
         <>

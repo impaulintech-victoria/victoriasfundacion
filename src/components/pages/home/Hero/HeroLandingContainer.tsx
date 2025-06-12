@@ -18,7 +18,7 @@ const HeroLandingContainer = () => {
       primaryBtnOnTap={handlePrimaryClick}
       secondaryBtnText='Meer over ons'
       secondaryBtnOnTap={handleSecondaryClick}
-      backgroundImg='/landing/landing-image.png'
+      backgroundImg='/landing/hero-image.png'
       height='lg'
     />
   )

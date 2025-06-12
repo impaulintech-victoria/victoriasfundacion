@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.1",
+    "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
