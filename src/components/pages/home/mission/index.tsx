@@ -8,7 +8,7 @@ const MissionLandingContainer = () => {
       description='Wij geloven in de kracht van verbinding en ondersteuning. Onze missie is om families die het moeilijk hebben te voorzien van de middelen, begeleiding en hoop die nodig zijn om uitdagingen te overwinnen en een stabiele toekomst op te bouwen.'
       buttonLabel='Meer over ons'
       imageSrc='/assets/images/landing/mission-image.png'
-      isInverted={true}
+      reverseOnDesktop={true}
       buttonOnTap={() => {
         //
       }}
