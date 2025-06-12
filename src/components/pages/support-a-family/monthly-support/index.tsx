@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button'
 
 const MonthlySupportSection = () => {
+  const supportAmounts = [10, 25, 50, 100]
+
   return (
     <section className='flex md:flex-row flex-col gap-4 md:gap-10 px-4 lg:px-14 2xl:px-40 xl:px-20 py-7 lg:py-10 2xl:py-20 xl:py-16 w-full'>
       <div className='flex flex-col flex-[1] justify-center items-center gap-5 w-full'>
@@ -23,10 +25,9 @@ const MonthlySupportSection = () => {
           van gezinnen veiligstellen.
         </p>
         <div className='gap-3 grid grid-cols-2 mt-5'>
-          <MonthlySupportCard amount={10} />
-          <MonthlySupportCard amount={25} />
-          <MonthlySupportCard amount={50} />
-          <MonthlySupportCard amount={100} />
+          {supportAmounts.map((amount) => (
+            <MonthlySupportCard key={amount} amount={amount} />
+          ))}
         </div>
         <Button variant={'default'} className='mt-3 xl:py-6 xl:text-lg'>
           Doneer Maandelijks

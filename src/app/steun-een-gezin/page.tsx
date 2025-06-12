@@ -9,7 +9,7 @@ const SteunEenGezin = () => {
         heading='Steun een gezin'
         description='Uw bijdrage maakt een direct verschil in het leven van gezinnen die onze hulp nodig hebben. Kies de manier die het beste bij u past.'
         backgroundImg='/assets/images/support-a-family/support-a-family-bg-image.png'
-        height='lg'
+        height='sm'
       />
       <MonthlySupportSection />
       <AdditionalSupportSection />
