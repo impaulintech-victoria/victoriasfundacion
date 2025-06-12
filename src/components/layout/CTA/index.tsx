@@ -34,7 +34,7 @@ const CallToAction = (props: CallToActionProps) => {
         <h2 className='px-8 py-1 border border-white rounded-full text-white text-sm md:text-base 2xl:text-lg'>
           {tag}
         </h2>
-        <h1 className='2xl:max-w-2xl font-bold text-white text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl text-center leading-8 sm:leading-10 md:leading-12 lg:leading-14 2xl:leading-20'>
+        <h1 className='2xl:max-w-2xl font-bold text-white text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl text-center leading-8 sm:leading-10 md:leading-12 lg:leading-14'>
           {header}
         </h1>
         <p className='max-w-sm sm:max-w-md lg:max-w-lg 2xl:max-w-3xl font-light text-white text-xs sm:text-sm 2xl:text-lg text-center'>

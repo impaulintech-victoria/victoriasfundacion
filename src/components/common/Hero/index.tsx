@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils/utils'
 import Image from 'next/image'
 
 interface HeroProps {
@@ -12,6 +13,8 @@ interface HeroProps {
   backgroundImg?: string
   position?: 'left' | 'right' | 'middle'
   height?: 'lg' | 'sm'
+  version?: 'primary' | 'secondary'
+  subTitle?: string
 }
 
 const HeroSection = (props: HeroProps) => {
@@ -25,12 +28,14 @@ const HeroSection = (props: HeroProps) => {
     backgroundImg,
     position = 'left',
     height = 'lg',
+    version = 'primary',
+    subTitle,
   } = props
 
   return (
     <section
       id='hero-content'
-      className={`z-0 relative flex 2xl:flex-row flex-col justify-end sm:justify-center bg-primary w-full overflow-hidden ${
+      className={`z-0 relative flex 2xl:flex-row flex-col justify-end sm:justify-center ${version === 'primary' ? 'bg-primary' : ''} w-full overflow-hidden ${
         height === 'lg'
           ? 'h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] 2xl:h-[650px]'
           : 'h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] 2xl:h-[450px]'
@@ -46,8 +51,21 @@ const HeroSection = (props: HeroProps) => {
               : 'items-center'
         }`}
       >
+        {subTitle && (
+          <p
+            className={`hidden uppercase 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-bold ${version === 'primary' ? 'text-white' : 'text-primary'}  text-xl leading-10 ${
+              position === 'left'
+                ? 'text-left'
+                : position === 'right'
+                  ? 'text-right'
+                  : 'text-center'
+            }`}
+          >
+            {subTitle}
+          </p>
+        )}
         <h1
-          className={`max-w-[800px] pb-2 lg:max-w-[700px] 2xl:max-w-[950px] font-bold text-white 2xl:text-[5rem] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
+          className={`max-w-[800px] pb-2 lg:max-w-[700px] 2xl:max-w-[950px] font-bold ${height === 'lg' ? '2xl:text-[5rem]' : '2xl:text-[3.5rem]'} ${version === 'primary' ? 'text-white' : 'text-primary'} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
@@ -58,7 +76,7 @@ const HeroSection = (props: HeroProps) => {
           {heading}
         </h1>
         <p
-          className={`md:hidden 2xl:max-w-[950px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light text-white text-sm ${
+          className={`md:hidden 2xl:max-w-[950px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${version === 'primary' ? 'text-white' : 'text-primary'} text-sm ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
@@ -69,7 +87,7 @@ const HeroSection = (props: HeroProps) => {
           {description}
         </p>
         <p
-          className={`hidden 2xl:hidden md:block sm:max-w-md max-w-lg md:max-w-lg lg:max-w-2xl font-light text-white text-xl ${
+          className={`hidden 2xl:hidden md:block sm:max-w-md max-w-lg md:max-w-lg lg:max-w-2xl font-light ${version === 'primary' ? 'text-white' : 'text-primary'} text-xl ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
@@ -80,7 +98,7 @@ const HeroSection = (props: HeroProps) => {
           {description}
         </p>
         <p
-          className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light text-white text-2xl leading-10 ${
+          className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${version === 'primary' ? 'text-white leading-10' : 'text-primary leading-8'} text-2xl ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
@@ -122,17 +140,38 @@ const HeroSection = (props: HeroProps) => {
           </div>
         )}
       </div>
-      <div id='hero-background' className='relative flex justify-end w-full'>
-        <Image
-          src={backgroundImg || ''}
-          alt='Hero Background'
-          width={1920}
-          height={1080}
-          className='z-0 w-full sm:w-[500px] lg:w-[700px] 2xl:w-[1000px] xl:w-[850px] h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[700px] xl:h-[600px] object-cover'
-        />
-        <div className='top-0 left-0 z-20 absolute bg-gradient-to-t sm:bg-gradient-to-r from-[#521D2A] via-[#521D2A]/90 sm:via-[#521D2A]/100 to-transparent w-full h-full pointer-events-none' />
-      </div>
-      <div className='sm:hidden bg-primary w-full h-[150px] pointer-events-none' />
+      {version === 'primary' ? (
+        <>
+          <div
+            id='hero-background'
+            className='relative flex justify-end w-full'
+          >
+            <Image
+              src={backgroundImg || ''}
+              alt='Hero Background'
+              width={1920}
+              height={1080}
+              className='z-0 w-full sm:w-[500px] lg:w-[700px] 2xl:w-[1000px] xl:w-[850px] h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[700px] xl:h-[600px] object-cover'
+            />
+            <div className='top-0 left-0 z-20 absolute bg-gradient-to-t sm:bg-gradient-to-r from-[#521D2A] via-[#521D2A]/90 sm:via-[#521D2A]/100 to-transparent w-full h-full pointer-events-none' />
+          </div>
+          <div className='sm:hidden bg-primary w-full h-[150px] pointer-events-none' />
+        </>
+      ) : (
+        <div className=''>
+          <Image
+            src={backgroundImg || ''}
+            alt={'Hero Background'}
+            fill
+            className={cn('object-cover z-5')}
+            priority
+          />
+          <div
+            className={`absolute inset-0 z-10 bg-[#f3dce2]`}
+            style={{ opacity: 0.95 }}
+          />
+        </div>
+      )}
     </section>
   )
 }
