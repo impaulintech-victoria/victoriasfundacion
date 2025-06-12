@@ -25,7 +25,7 @@ const Card = ({
       } ${className}`}
     >
       {isComingSoon && (
-        <div className='z-10 absolute inset-0 flex justify-center items-center backdrop-blur-xs p-6 rounded-2xl'>
+        <div className='z-10 absolute inset-0 flex justify-center items-center backdrop-blur-xs p-6 rounded-3xl'>
           <span className='font-bold text-primary text-xl'>Coming Soon</span>
         </div>
       )}

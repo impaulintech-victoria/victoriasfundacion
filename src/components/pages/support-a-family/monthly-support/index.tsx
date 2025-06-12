@@ -1,7 +1,18 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import { useState } from 'react'
 
 const MonthlySupportSection = () => {
   const supportAmounts = [10, 25, 50, 100]
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
+
+  const handleDonate = () => {
+    if (selectedAmount) {
+      // TODO: Replace with actual donation URL
+      window.open(`https://donation-url.com?amount=${selectedAmount}`, '_blank')
+    }
+  }
 
   return (
     <section className='flex md:flex-row flex-col gap-4 md:gap-10 px-4 lg:px-14 2xl:px-40 xl:px-20 py-7 lg:py-10 2xl:py-20 xl:py-16 w-full'>
@@ -26,10 +37,20 @@ const MonthlySupportSection = () => {
         </p>
         <div className='gap-3 grid grid-cols-2 mt-5'>
           {supportAmounts.map((amount) => (
-            <MonthlySupportCard key={amount} amount={amount} />
+            <MonthlySupportCard
+              key={amount}
+              amount={amount}
+              isSelected={selectedAmount === amount}
+              onClick={() => setSelectedAmount(amount)}
+            />
           ))}
         </div>
-        <Button variant={'default'} className='mt-3 xl:py-6 xl:text-lg'>
+        <Button
+          variant={'default'}
+          className='mt-3 xl:py-6 xl:text-lg cursor-pointer'
+          onClick={handleDonate}
+          disabled={!selectedAmount}
+        >
           Doneer Maandelijks
         </Button>
       </div>
@@ -39,9 +60,20 @@ const MonthlySupportSection = () => {
 
 export default MonthlySupportSection
 
-function MonthlySupportCard(props: { amount: number }) {
+function MonthlySupportCard(props: {
+  amount: number
+  isSelected: boolean
+  onClick: () => void
+}) {
   return (
-    <section className='flex flex-col justify-center items-center gap-2 p-4 border-2 border-black rounded-lg'>
+    <section
+      className={`flex flex-col justify-center items-center gap-2 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
+        props.isSelected
+          ? 'border-primary bg-primary/10'
+          : 'border-black hover:border-primary'
+      }`}
+      onClick={props.onClick}
+    >
       <h2 className='font-black text-primary text-2xl xl:text-3xl'>
         €{props.amount}
       </h2>
