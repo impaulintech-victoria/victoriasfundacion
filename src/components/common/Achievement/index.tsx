@@ -33,7 +33,7 @@ const AchievementsSection = ({
   version = 'primary',
 }: AchievementsSectionProps) => {
   return (
-    <div className='relative px-5 py-32 w-full'>
+    <div className='relative px-5 py-10 2xl:py-32 w-full'>
       <FadedBgImage src={bgImageSrc} alt={bgImageAlt} bgColor={bgColor} />
 
       <div className='z-10 relative flex flex-col justify-center items-center gap-10 2xl:gap-16'>
@@ -60,7 +60,7 @@ const AchievementsSection = ({
 
         <section
           id='cards-section'
-          className='flex flex-wrap justify-center gap-5 xl:gap-7 2xl:gap-10 max-w-screen-xl w-full'
+          className='flex flex-wrap justify-center gap-5 xl:gap-7 2xl:gap-10 w-screen px-5'
         >
           {achievements.map(
             ({ imageSrc, title, description, tag, comingSoon }, index) => (
@@ -68,7 +68,7 @@ const AchievementsSection = ({
                 key={index}
                 className={clsx(
                   'relative group flex flex-col items-center gap-4 bg-white shadow-lg px-4 py-6 lg:px-6 lg:py-8 rounded-xl',
-                  'w-full sm:w-[48%] md:w-[31%] lg:w-[22%] max-w-xs',
+                  'w-full sm:w-[48%] md:w-[31%] lg:w-[30%] max-w-[400px]',
                   version === 'secondary' && 'p-4 lg:p-5',
                 )}
               >
@@ -107,11 +107,11 @@ const AchievementsSection = ({
                 {description && (
                   <section className='flex flex-col items-center gap-2 text-center'>
                     {version === 'primary' && (
-                      <span className='bg-accent border border-primary rounded-full w-[100px] sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
+                      <span className='bg-accent border border-primary rounded-full w-full sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
                     )}
                     <p
                       className={clsx(
-                        'text-muted text-sm sm:text-base max-w-[220px]',
+                        'text-muted text-sm sm:text-base max-w-[300px] w-full',
                         version === 'secondary' && 'mt-2 text-center',
                       )}
                     >
