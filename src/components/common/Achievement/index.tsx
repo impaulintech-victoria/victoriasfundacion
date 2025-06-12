@@ -60,20 +60,20 @@ const AchievementsSection = ({
 
         <section
           id='cards-section'
-          className='flex flex-wrap justify-center gap-5 xl:gap-7 2xl:gap-10 w-screen px-5'
+          className='flex flex-wrap justify-center gap-5 2xl:gap-10 xl:gap-7 px-5 w-screen'
         >
           {achievements.map(
             ({ imageSrc, title, description, tag, comingSoon }, index) => (
               <div
                 key={index}
                 className={clsx(
-                  'relative group flex flex-col items-center gap-4 bg-white shadow-lg px-4 py-6 lg:px-6 lg:py-8 rounded-xl',
+                  'group relative flex flex-col items-center gap-4 bg-white shadow-lg px-4 lg:px-6 py-6 lg:py-8 rounded-xl',
                   'w-full sm:w-[48%] md:w-[31%] lg:w-[30%] max-w-[400px]',
                   version === 'secondary' && 'p-4 lg:p-5',
                 )}
               >
                 {version === 'secondary' && tag && (
-                  <span className='absolute top-3 right-3 bg-[#70142e] text-white text-md px-5 py-2 rounded-full shadow-sm z-30'>
+                  <span className='top-3 right-3 z-30 absolute bg-[#70142e] shadow-sm px-5 py-2 rounded-full text-md text-white'>
                     {tag}
                   </span>
                 )}
@@ -85,13 +85,13 @@ const AchievementsSection = ({
                     width={220}
                     height={130}
                     className={clsx(
-                      'rounded-md object-cover w-full h-[120px] sm:h-[140px] lg:h-[160px] transition-all duration-300 ease-in-out',
+                      'rounded-md w-full h-[120px] sm:h-[140px] lg:h-[160px] object-cover transition-all duration-300 ease-in-out',
                       comingSoon && 'blur-sm brightness-75',
                     )}
                   />
                   {comingSoon && (
-                    <div className='absolute inset-0 flex items-center justify-center'>
-                      <span className='text-white text-sm sm:text-base lg:text-lg font-semibold px-3 py-1 rounded'>
+                    <div className='absolute inset-0 flex justify-center items-center'>
+                      <span className='px-3 py-1 rounded font-semibold text-white text-sm sm:text-base lg:text-lg'>
                         Binnenkort beschikbaar
                       </span>
                     </div>
@@ -107,11 +107,11 @@ const AchievementsSection = ({
                 {description && (
                   <section className='flex flex-col items-center gap-2 text-center'>
                     {version === 'primary' && (
-                      <span className='bg-accent border border-primary rounded-full w-full sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
+                      <span className='bg-accent border border-primary rounded-full w-full sm:w-[130px] group-hover:w-full h-[6px] transition-all duration-300 ease-in-out' />
                     )}
                     <p
                       className={clsx(
-                        'text-muted text-sm sm:text-base max-w-[300px] w-full',
+                        'w-full max-w-[300px] text-muted text-sm sm:text-base',
                         version === 'secondary' && 'mt-2 text-center',
                       )}
                     >
