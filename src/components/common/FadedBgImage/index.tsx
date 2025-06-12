@@ -22,11 +22,11 @@ const FadedBgImage = ({
         src={src}
         alt={alt}
         fill
-        className={cn('object-cover z-10', className)}
+        className={cn('object-cover z-0', className)}
         priority
       />
       <div
-        className={`absolute inset-0 z-5 bg-${bgColor}`}
+        className={`absolute inset-0 z-10 bg-${bgColor}`}
         style={{ opacity: opacity }}
       />
     </div>
