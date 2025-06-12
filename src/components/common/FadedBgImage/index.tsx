@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 interface FadedBgImageProps {
   src: string
-  alt: string
+  alt?: string
   className?: string
   bgColor?: string
   opacity?: number
@@ -11,7 +11,7 @@ interface FadedBgImageProps {
 
 const FadedBgImage = ({
   src,
-  alt,
+  alt = 'Hero Background',
   className,
   bgColor,
   opacity = 0.5,
