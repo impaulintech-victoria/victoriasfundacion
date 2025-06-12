@@ -1,16 +1,15 @@
 'use client'
-import HeroSection from '@/components/common/Hero'
+
+import ProjectHeroSection from '@/components/common/Hero'
 
 const Projecten = () => {
   return (
     <div id='main-container' className='flex flex-col w-full'>
-      <HeroSection
-        heading='Bouwen aan een hoopvolle toekomst'
-        description="Stichting Victoria's Origen zet zich in voor gezinnen in kwetsbare situaties, omdat ieder gezin een sterke basis verdient."
-        primaryBtnText='Ontdek hoe u kunt helpen'
-        secondaryBtnText='Meer over ons'
-        backgroundImg='/landing/hero-image.png'
-        height='lg'
+      <ProjectHeroSection
+        heading='Onze Projecten'
+        description='Ontdek de initiatieven waarmee we gezinnen ondersteunen en een positieve impact maken in de gemeenschap.'
+        backgroundImg='/assets/images/project/hero-image.png'
+        height='sm'
       />
     </div>
   )

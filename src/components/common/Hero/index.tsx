@@ -33,7 +33,7 @@ const HeroSection = (props: HeroProps) => {
       className={`z-0 relative flex 2xl:flex-row flex-col justify-end sm:justify-center bg-primary w-full overflow-hidden ${
         height === 'lg'
           ? 'h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] 2xl:h-[650px]'
-          : 'h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] 2xl:h-[550px]'
+          : 'h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] 2xl:h-[450px]'
       }`}
     >
       <div
@@ -47,7 +47,7 @@ const HeroSection = (props: HeroProps) => {
         }`}
       >
         <h1
-          className={`max-w-[800px] lg:max-w-[700px] 2xl:max-w-[950px] font-bold text-white 2xl:text-[5rem] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
+          className={`max-w-[800px] pb-2 lg:max-w-[700px] 2xl:max-w-[950px] font-bold text-white 2xl:text-[5rem] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
             position === 'left'
               ? 'text-left'
               : position === 'right'
@@ -90,35 +90,37 @@ const HeroSection = (props: HeroProps) => {
         >
           {description}
         </p>
-        <div
-          id='hero-content-buttons'
-          className={`flex justify-start items-center gap-3 sm:gap-5 2xl:gap-7 mt-2 sm:mt-4 2xl:mt-10 ${
-            position === 'left'
-              ? 'justify-start'
-              : position === 'right'
-                ? 'justify-end'
-                : 'justify-center'
-          }`}
-        >
-          {primaryBtnOnTap && primaryBtnText && (
-            <Button
-              variant={'default'}
-              className='bg-accent hover:bg-accent/80 px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 rounded-xl font-bold text-primary lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
-              onClick={primaryBtnOnTap}
-            >
-              {primaryBtnText}
-            </Button>
-          )}
-          {secondaryBtnOnTap && secondaryBtnText && (
-            <Button
-              variant={'outline'}
-              className='bg-transparent px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 border-accent rounded-xl font-bold text-accent lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
-              onClick={secondaryBtnOnTap}
-            >
-              {secondaryBtnText}
-            </Button>
-          )}
-        </div>
+        {primaryBtnText && secondaryBtnText && (
+          <div
+            id='hero-content-buttons'
+            className={`flex justify-start items-center gap-3 sm:gap-5 2xl:gap-7 mt-2 sm:mt-4 2xl:mt-10 ${
+              position === 'left'
+                ? 'justify-start'
+                : position === 'right'
+                  ? 'justify-end'
+                  : 'justify-center'
+            }`}
+          >
+            {primaryBtnOnTap && primaryBtnText && (
+              <Button
+                variant={'default'}
+                className='bg-accent hover:bg-accent/80 px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 rounded-xl font-bold text-primary lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
+                onClick={primaryBtnOnTap}
+              >
+                {primaryBtnText}
+              </Button>
+            )}
+            {secondaryBtnOnTap && secondaryBtnText && (
+              <Button
+                variant={'outline'}
+                className='bg-transparent px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 border-accent rounded-xl font-bold text-accent lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
+                onClick={secondaryBtnOnTap}
+              >
+                {secondaryBtnText}
+              </Button>
+            )}
+          </div>
+        )}
       </div>
       <div id='hero-background' className='relative flex justify-end w-full'>
         <Image
