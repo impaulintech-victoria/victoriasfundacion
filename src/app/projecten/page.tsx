@@ -11,6 +11,7 @@ const Projecten = () => {
       description:
         'Directe ondersteuning met voedsel, kleding en essentiële benodigdheden voor gezinnen in acute nood.',
       tag: 'Lopend',
+      comingSoon: true,
     },
     {
       imageSrc: '/assets/images/project/project-Budget Begeleiding Traject.png',
@@ -18,6 +19,7 @@ const Projecten = () => {
       description:
         'Individuele begeleidingstrajecten om gezinnen te helpen financieel stabieler te worden.',
       tag: 'Lopend',
+      comingSoon: true,
     },
     {
       imageSrc:
@@ -26,14 +28,16 @@ const Projecten = () => {
       description:
         'Workshops en groepsbijeenkomsten voor ouders om opvoedingsvaardigheden te versterken.',
       tag: 'Lopend',
+      comingSoon: true,
     },
     {
       imageSrc:
         '/assets/images/project/project-Zomerkamp voor Kinderen (Planning).png',
-      title: 'Zomerkamp voor Kinderen (Planning)',
+      title: 'Zomerkamp voor Kinderen',
       description:
         'Een gepland zomerkamp om kinderen uit kwetsbare gezinnen een onvergetelijke ervaring te bieden.',
       tag: 'Toekomstig',
+      comingSoon: true,
     },
   ]
 
@@ -46,7 +50,7 @@ const Projecten = () => {
         height='sm'
       />
       <AchievementsSection
-        bgImageSrc='/landing/achievements/landing-achievement-bg.png'
+        bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
         bgImageAlt='achievement-bg'
         version='secondary'
         achievements={achievements}

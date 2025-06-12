@@ -8,16 +8,19 @@ export default function Home() {
       imageSrc: '/assets/images/landing/achievements/achievement-card-1.png',
       title: '100+',
       description: 'Gezinnen ondersteund met directe hulp en begeleiding',
+      comingSoon: false,
     },
     {
       imageSrc: '/assets/images/landing/achievements/achievement-card-2.png',
       title: '5',
       description: 'Lopende projecten gericht op duurzame verandering',
+      comingSoon: false,
     },
     {
       imageSrc: '/assets/images/landing/achievements/achievement-card-3.png',
       title: '€50K+',
       description: "Verzameld ten behoeve van ondersteuningsprogramma's",
+      comingSoon: false,
     },
   ]
   return (

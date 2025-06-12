@@ -7,6 +7,7 @@ export type AchievementItem = {
   title?: string
   description?: string
   tag?: string
+  comingSoon?: boolean
 }
 
 type AchievementsSectionProps = {
@@ -18,6 +19,7 @@ type AchievementsSectionProps = {
   sectionSubtitle?: string
   achievements: AchievementItem[]
   version?: 'primary' | 'secondary'
+  comingSoon?: boolean
 }
 
 const AchievementsSection = ({
@@ -60,49 +62,66 @@ const AchievementsSection = ({
           id='cards-section'
           className='flex flex-wrap justify-center gap-5 xl:gap-7 2xl:gap-10 max-w-screen-xl w-full'
         >
-          {achievements.map(({ imageSrc, title, description, tag }, index) => (
-            <div
-              key={index}
-              className={clsx(
-                'relative group flex flex-col items-center gap-4 bg-white shadow-lg px-4 py-6 lg:px-6 lg:py-8 border border-black rounded-xl w-full sm:w-[45%] md:w-[40%] lg:w-[22%] max-w-xs',
-                version === 'secondary' && 'p-4 lg:p-5',
-              )}
-            >
-              {version === 'secondary' && tag && (
-                <span className='absolute top-3 right-3 bg-primary text-white text-xs px-3 py-1 rounded-full shadow-sm'>
-                  {tag}
-                </span>
-              )}
+          {achievements.map(
+            ({ imageSrc, title, description, tag, comingSoon }, index) => (
+              <div
+                key={index}
+                className={clsx(
+                  'relative group flex flex-col items-center gap-4 bg-white shadow-lg px-4 py-6 lg:px-6 lg:py-8 rounded-xl',
+                  'w-full sm:w-[48%] md:w-[31%] lg:w-[22%] max-w-xs',
+                  version === 'secondary' && 'p-4 lg:p-5',
+                )}
+              >
+                {version === 'secondary' && tag && (
+                  <span className='absolute top-3 right-3 bg-[#70142e] text-white text-md px-5 py-2 rounded-full shadow-sm z-30'>
+                    {tag}
+                  </span>
+                )}
 
-              <Image
-                src={imageSrc}
-                alt={title || `achievement-${index}`}
-                width={220}
-                height={130}
-                className='rounded-md object-cover w-full h-[120px] sm:h-[140px] lg:h-[160px]'
-              />
-
-              <h3 className='font-bold text-primary text-xl lg:text-2xl text-center'>
-                {title}
-              </h3>
-
-              {description && (
-                <section className='flex flex-col items-center gap-2 text-center'>
-                  {version === 'primary' && (
-                    <span className='bg-accent border border-primary rounded-full w-[100px] sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
-                  )}
-                  <p
+                <div className='relative w-full'>
+                  <Image
+                    src={imageSrc}
+                    alt={title || `achievement-${index}`}
+                    width={220}
+                    height={130}
                     className={clsx(
-                      'text-muted text-sm sm:text-base max-w-[220px]',
-                      version === 'secondary' && 'mt-2 text-center',
+                      'rounded-md object-cover w-full h-[120px] sm:h-[140px] lg:h-[160px] transition-all duration-300 ease-in-out',
+                      comingSoon && 'blur-sm brightness-75',
                     )}
-                  >
-                    {description}
-                  </p>
-                </section>
-              )}
-            </div>
-          ))}
+                  />
+                  {comingSoon && (
+                    <div className='absolute inset-0 flex items-center justify-center'>
+                      <span className='text-white text-sm sm:text-base lg:text-lg font-semibold px-3 py-1 rounded'>
+                        Binnenkort beschikbaar
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {title && (
+                  <h3 className='font-bold text-primary text-xl lg:text-2xl text-center'>
+                    {title}
+                  </h3>
+                )}
+
+                {description && (
+                  <section className='flex flex-col items-center gap-2 text-center'>
+                    {version === 'primary' && (
+                      <span className='bg-accent border border-primary rounded-full w-[100px] sm:w-[130px] h-[6px] group-hover:w-full transition-all duration-300 ease-in-out' />
+                    )}
+                    <p
+                      className={clsx(
+                        'text-muted text-sm sm:text-base max-w-[220px]',
+                        version === 'secondary' && 'mt-2 text-center',
+                      )}
+                    >
+                      {description}
+                    </p>
+                  </section>
+                )}
+              </div>
+            ),
+          )}
         </section>
       </div>
     </div>
