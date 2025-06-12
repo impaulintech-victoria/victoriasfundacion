@@ -1,15 +1,14 @@
 'use client'
-
-import HeroSection from '@/components/pages/home/Hero'
+import HeroSection from '@/components/common/Hero'
 
 const HeroLandingContainer = () => {
   const handlePrimaryClick = async () => {
-    // Add your primary button action here
+    //
+  }
+  const handleSecondaryClick = async () => {
+    //
   }
 
-  const handleSecondaryClick = async () => {
-    // Add your secondary button action here
-  }
   return (
     <HeroSection
       heading='Bouwen aan een hoopvolle toekomst'
@@ -18,7 +17,7 @@ const HeroLandingContainer = () => {
       primaryBtnOnTap={handlePrimaryClick}
       secondaryBtnText='Meer over ons'
       secondaryBtnOnTap={handleSecondaryClick}
-      backgroundImg='/landing/hero-image.png'
+      backgroundImg='/assets/images/landing/hero-image.png'
       height='lg'
     />
   )

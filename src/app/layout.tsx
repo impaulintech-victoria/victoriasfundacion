@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Overlock } from 'next/font/google'
 import './globals.css'
+import CallToAction from '@/components/layout/CTA'
 import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
+import { ReactNode } from 'react'
 
 const overlock = Overlock({
   subsets: ['latin'],
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   const messages = await getMessages()
   const locale = await getLocale()
@@ -69,6 +71,13 @@ export default async function RootLayout({
           <Navbar />
           <div className='h-20' />
           {children}
+          <CallToAction
+            tag='Make a Difference for Families'
+            header='Help ons om meer gezinnen te ondersteunen'
+            description='Elke bijdrage, groot of klein, maakt een verschil in het leven van gezinnen die onze hulp nodig hebben. Samen kunnen we voor meer mensen een hoopvolle toekomst creëren.'
+            buttonLabel='Word donateur'
+            imageSrc='/assets/images/landing/cta-image.png'
+          />
           <Footer />
         </NextIntlClientProvider>
       </body>
