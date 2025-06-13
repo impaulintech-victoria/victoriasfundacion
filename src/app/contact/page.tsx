@@ -1,4 +1,7 @@
+'use client'
+
 import HeroSection from '@/components/common/Hero'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import ContactFormSection from '@/components/pages/contact'
 
 const Contact = () => {
@@ -10,7 +13,13 @@ const Contact = () => {
         backgroundImg='/assets/images/contact/contact-bg-image.png'
         height='sm'
       />
-      <ContactFormSection />
+      <TextAnimationWrapper
+        delay={300}
+        animation='fade-up'
+        className='flex justify-center items-center w-full'
+      >
+        <ContactFormSection />
+      </TextAnimationWrapper>
     </div>
   )
 }
