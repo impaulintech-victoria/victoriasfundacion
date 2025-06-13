@@ -1,28 +1,28 @@
-import { cn } from '@/lib/utils/utils'
-import Image from 'next/image'
+import { cn } from "@/lib/utils/utils";
+import Image from "next/image";
 
 interface FadedBgImageProps {
-  src: string
-  alt?: string
-  className?: string
-  bgColor?: string
-  opacity?: number
+  src: string;
+  alt?: string;
+  className?: string;
+  bgColor?: string;
+  opacity?: number;
 }
 
 const FadedBgImage = ({
   src,
-  alt = 'Hero Background',
+  alt = "Hero Background",
   className,
   bgColor,
   opacity = 0.5,
 }: FadedBgImageProps) => {
   return (
-    <div className=''>
+    <div className="">
       <Image
         src={src}
         alt={alt}
         fill
-        className={cn('object-cover z-10', className)}
+        className={cn("object-cover z-10", className)}
         priority
       />
       <div
@@ -30,7 +30,7 @@ const FadedBgImage = ({
         style={{ opacity: opacity }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default FadedBgImage
+export default FadedBgImage;
