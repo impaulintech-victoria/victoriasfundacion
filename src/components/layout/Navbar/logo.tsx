@@ -5,10 +5,10 @@ const Logo = () => {
   return (
     <Link href='/' className='order-1 xl:order-none'>
       <Image
-        src='/assets/images/victorias-origen.png'
-        alt="Victoria's Origen Logo"
-        width={160}
-        height={40}
+        src='/assets/images/victorias-fundacion.png'
+        alt="Victoria's Fundacion Logo"
+        width={260}
+        height={50}
         priority
       />
     </Link>
