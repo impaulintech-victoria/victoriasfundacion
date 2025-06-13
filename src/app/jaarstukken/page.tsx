@@ -1,6 +1,9 @@
+'use client'
+
 import Report from '@/assets/icon/Report'
 import Card from '@/components/common/Card'
 import JaarstukkenHeroSection from '@/components/common/Hero'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 
 const Jaarstukken = () => {
   return (
@@ -14,14 +17,18 @@ const Jaarstukken = () => {
         subTitle='JAARSTUKKEN'
         version='secondary'
       />
-      <div className='flex items-center justify-center w-full py-12 lg:py-24'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 p-6 w-full max-w-[900px]'>
-          <div className='md:col-span-2'>
+      <div className='flex justify-center items-center py-12 lg:py-24 w-full'>
+        <div className='gap-6 grid grid-cols-1 md:grid-cols-2 p-6 w-full max-w-[900px]'>
+          <TextAnimationWrapper
+            delay={300}
+            animation='fade-up'
+            className='md:col-span-2'
+          >
             <Card>
               <div className='p-6'>
-                <div className='flex gap-5 items-start'>
+                <div className='flex items-start gap-5'>
                   <Report />
-                  <h2 className='text-2xl font-bold mb-6 text-[#70142E]'>
+                  <h2 className='mb-6 font-bold text-[#70142E] text-2xl'>
                     Jaarrekening 2025
                   </h2>
                 </div>
@@ -31,7 +38,7 @@ const Jaarstukken = () => {
                 </p>
               </div>
             </Card>
-          </div>
+          </TextAnimationWrapper>
         </div>
       </div>
     </div>

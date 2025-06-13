@@ -1,4 +1,5 @@
 'use client'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils/utils'
 import Image from 'next/image'
@@ -56,14 +57,34 @@ const HeroSection = (props: HeroProps) => {
         }`}
       >
         {subTitle && (
-          <p
-            className={`${
-              showSubtitleOnMobile
-                ? 'block text-xs sm:text-sm lg:text-base xl:text-lg'
-                : 'hidden'
-            } uppercase 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-bold ${
+          <TextAnimationWrapper delay={0} animation='fade-in'>
+            <p
+              className={`${
+                showSubtitleOnMobile
+                  ? 'block text-xs sm:text-sm lg:text-base xl:text-lg'
+                  : 'hidden'
+              } uppercase 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-bold ${
+                version === 'primary' ? 'text-white' : 'text-primary'
+              }  text-xl leading-10 ${
+                position === 'left'
+                  ? 'text-left'
+                  : position === 'right'
+                    ? 'text-right'
+                    : 'text-center'
+              }`}
+            >
+              {subTitle}
+            </p>
+          </TextAnimationWrapper>
+        )}
+
+        <TextAnimationWrapper delay={200} animation='fade-up'>
+          <h1
+            className={`max-w-[800px] pb-2 lg:max-w-[700px] 2xl:max-w-[950px] font-bold ${
+              height === 'lg' ? '2xl:text-[5rem]' : '2xl:text-[3.5rem]'
+            } ${
               version === 'primary' ? 'text-white' : 'text-primary'
-            }  text-xl leading-10 ${
+            } text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
               position === 'left'
                 ? 'text-left'
                 : position === 'right'
@@ -71,95 +92,88 @@ const HeroSection = (props: HeroProps) => {
                   : 'text-center'
             }`}
           >
-            {subTitle}
-          </p>
-        )}
-        <h1
-          className={`max-w-[800px] pb-2 lg:max-w-[700px] 2xl:max-w-[950px] font-bold ${
-            height === 'lg' ? '2xl:text-[5rem]' : '2xl:text-[3.5rem]'
-          } ${
-            version === 'primary' ? 'text-white' : 'text-primary'
-          } text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-2 ${
-            position === 'left'
-              ? 'text-left'
-              : position === 'right'
-                ? 'text-right'
-                : 'text-center'
-          }`}
-        >
-          {heading}
-        </h1>
-        <p
-          className={`md:hidden 2xl:max-w-[950px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${
-            version === 'primary' ? 'text-white' : 'text-primary'
-          } text-sm ${
-            position === 'left'
-              ? 'text-left'
-              : position === 'right'
-                ? 'text-right'
-                : 'text-center'
-          }`}
-        >
-          {description}
-        </p>
-        <p
-          className={`hidden 2xl:hidden md:block sm:max-w-md max-w-lg md:max-w-lg lg:max-w-2xl font-light ${
-            version === 'primary' ? 'text-white' : 'text-primary'
-          } text-xl ${
-            position === 'left'
-              ? 'text-left'
-              : position === 'right'
-                ? 'text-right'
-                : 'text-center'
-          }`}
-        >
-          {description}
-        </p>
-        <p
-          className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${
-            version === 'primary'
-              ? 'text-white leading-10'
-              : 'text-primary leading-8'
-          } text-2xl ${
-            position === 'left'
-              ? 'text-left'
-              : position === 'right'
-                ? 'text-right'
-                : 'text-center'
-          }`}
-        >
-          {description}
-        </p>
+            {heading}
+          </h1>
+        </TextAnimationWrapper>
+
+        <TextAnimationWrapper delay={400} animation='fade-up'>
+          <>
+            <p
+              className={`md:hidden 2xl:max-w-[950px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${
+                version === 'primary' ? 'text-white' : 'text-primary'
+              } text-sm ${
+                position === 'left'
+                  ? 'text-left'
+                  : position === 'right'
+                    ? 'text-right'
+                    : 'text-center'
+              }`}
+            >
+              {description}
+            </p>
+            <p
+              className={`hidden 2xl:hidden md:block sm:max-w-md max-w-lg md:max-w-lg lg:max-w-2xl font-light ${
+                version === 'primary' ? 'text-white' : 'text-primary'
+              } text-xl ${
+                position === 'left'
+                  ? 'text-left'
+                  : position === 'right'
+                    ? 'text-right'
+                    : 'text-center'
+              }`}
+            >
+              {description}
+            </p>
+            <p
+              className={`hidden 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-light ${
+                version === 'primary'
+                  ? 'text-white leading-10'
+                  : 'text-primary leading-8'
+              } text-2xl ${
+                position === 'left'
+                  ? 'text-left'
+                  : position === 'right'
+                    ? 'text-right'
+                    : 'text-center'
+              }`}
+            >
+              {description}
+            </p>
+          </>
+        </TextAnimationWrapper>
+
         {primaryBtnText && secondaryBtnText && (
-          <div
-            id='hero-content-buttons'
-            className={`flex justify-start items-center gap-3 sm:gap-5 2xl:gap-7 mt-2 sm:mt-4 2xl:mt-10 ${
-              position === 'left'
-                ? 'justify-start'
-                : position === 'right'
-                  ? 'justify-end'
-                  : 'justify-center'
-            }`}
-          >
-            {primaryBtnOnTap && primaryBtnText && (
-              <Button
-                variant={'default'}
-                className='bg-accent hover:bg-accent/80 px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 rounded-xl font-bold text-primary lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
-                onClick={primaryBtnOnTap}
-              >
-                {primaryBtnText}
-              </Button>
-            )}
-            {secondaryBtnOnTap && secondaryBtnText && (
-              <Button
-                variant={'outline'}
-                className='bg-transparent px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 border-accent rounded-xl font-bold text-accent lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
-                onClick={secondaryBtnOnTap}
-              >
-                {secondaryBtnText}
-              </Button>
-            )}
-          </div>
+          <TextAnimationWrapper delay={600} animation='fade-up'>
+            <div
+              id='hero-content-buttons'
+              className={`flex justify-start items-center gap-3 sm:gap-5 2xl:gap-7 mt-2 sm:mt-4 2xl:mt-10 ${
+                position === 'left'
+                  ? 'justify-start'
+                  : position === 'right'
+                    ? 'justify-end'
+                    : 'justify-center'
+              }`}
+            >
+              {primaryBtnOnTap && primaryBtnText && (
+                <Button
+                  variant={'default'}
+                  className='bg-accent hover:bg-accent/80 px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 rounded-xl font-bold text-primary lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
+                  onClick={primaryBtnOnTap}
+                >
+                  {primaryBtnText}
+                </Button>
+              )}
+              {secondaryBtnOnTap && secondaryBtnText && (
+                <Button
+                  variant={'outline'}
+                  className='bg-transparent px-5 sm:px-7 2xl:px-10 py-5 lg:py-7 2xl:py-7 border-accent rounded-xl font-bold text-accent lg:text-md text-xs sm:text-sm lg:text-lg 2xl:text-lg cursor-pointer'
+                  onClick={secondaryBtnOnTap}
+                >
+                  {secondaryBtnText}
+                </Button>
+              )}
+            </div>
+          </TextAnimationWrapper>
         )}
       </div>
       {version === 'primary' ? (

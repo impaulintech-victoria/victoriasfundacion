@@ -1,8 +1,11 @@
+'use client'
+
 import OurBoard from '@/assets/icon/OurBoard'
 import OurSupport from '@/assets/icon/OurSupport'
 import OurTeam from '@/assets/icon/OurTeam'
 import Card from '@/components/common/Card'
 import OnsTeamHeroSection from '@/components/common/Hero'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 
 const OnsTeam = () => {
   return (
@@ -16,60 +19,68 @@ const OnsTeam = () => {
         subTitle='Ons Team'
         version='secondary'
       />
-      <div className='flex items-center justify-center w-full py-12 lg:py-24'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 p-6 w-full max-w-[1500px]'>
-          <Card>
-            <div className='p-6'>
-              <div className='flex gap-5 items-start'>
-                <OurBoard />
-                <h2 className='text-2xl font-bold mb-6 text-[#70142E]'>
-                  Ons bestuur
-                </h2>
-              </div>
-              <div className='space-y-6'>
-                <div className='bg-[#f3dce2] p-5 rounded-md'>
-                  <h3 className='text-xl font-bold text-[#70142E]'>
-                    Joselina Victoria
-                  </h3>
-                  <p className='text-[#70142E] text-md'>Voorzitter</p>
-                </div>
-                <div className='bg-[#f3dce2] p-5 rounded-md'>
-                  <h3 className='text-xl font-bold text-[#70142E]'>
-                    Joselin de Jesus
-                  </h3>
-                  <p className='text-[#70142E] text-md'>
-                    Secretaris & Penningmeester
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-          <Card>
-            <div className='p-6'>
-              <div className='flex gap-5 items-start'>
-                <OurSupport />
-                <h2 className='text-2xl font-bold mb-6 text-[#70142E]'>
-                  Onze ondersteuning
-                </h2>
-              </div>
-              <p className='text-gray-600 text-lg'>
-                We werken met een kleine, flexibele basis van freelancers en
-                virtuele assistenten. Deze professionals ondersteunen ons in
-                communicatie, organisatie en projectopbouw—altijd in dienst van
-                het maatschappelijke doel.
-              </p>
-            </div>
-          </Card>
-          <div className='md:col-span-2'>
+      <div className='flex justify-center items-center py-12 lg:py-24 w-full'>
+        <div className='gap-6 grid grid-cols-1 md:grid-cols-2 p-6 w-full max-w-[1500px]'>
+          <TextAnimationWrapper delay={300} animation='fade-up'>
             <Card>
               <div className='p-6'>
-                <div className='flex gap-5 items-start'>
+                <div className='flex items-start gap-5'>
+                  <OurBoard />
+                  <h2 className='mb-6 font-bold text-[#70142E] text-2xl'>
+                    Ons bestuur
+                  </h2>
+                </div>
+                <div className='space-y-6'>
+                  <div className='bg-[#f3dce2] p-5 rounded-md'>
+                    <h3 className='font-bold text-[#70142E] text-xl'>
+                      Joselina Victoria
+                    </h3>
+                    <p className='text-[#70142E] text-md'>Voorzitter</p>
+                  </div>
+                  <div className='bg-[#f3dce2] p-5 rounded-md'>
+                    <h3 className='font-bold text-[#70142E] text-xl'>
+                      Joselin de Jesus
+                    </h3>
+                    <p className='text-[#70142E] text-md'>
+                      Secretaris & Penningmeester
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </TextAnimationWrapper>
+          <TextAnimationWrapper delay={500} animation='fade-up'>
+            <Card>
+              <div className='p-6'>
+                <div className='flex items-start gap-5'>
+                  <OurSupport />
+                  <h2 className='mb-6 font-bold text-[#70142E] text-2xl'>
+                    Onze ondersteuning
+                  </h2>
+                </div>
+                <p className='text-gray-600 text-lg'>
+                  We werken met een kleine, flexibele basis van freelancers en
+                  virtuele assistenten. Deze professionals ondersteunen ons in
+                  communicatie, organisatie en projectopbouw—altijd in dienst
+                  van het maatschappelijke doel.
+                </p>
+              </div>
+            </Card>
+          </TextAnimationWrapper>
+          <TextAnimationWrapper
+            delay={700}
+            animation='fade-up'
+            className='md:col-span-2'
+          >
+            <Card>
+              <div className='p-6'>
+                <div className='flex items-start gap-5'>
                   <OurTeam />
-                  <h2 className='text-2xl font-bold mb-6 text-[#70142E]'>
+                  <h2 className='mb-6 font-bold text-[#70142E] text-2xl'>
                     Binnenkort breiden wij ons team uit met
                   </h2>
                 </div>
-                <ul className='list-disc marker:text-[#70142E] pl-5 text-xl space-y-2'>
+                <ul className='space-y-2 pl-5 marker:text-[#70142E] text-xl list-disc'>
                   <li>Een projectmanager</li>
                   <li>Extra administratieve ondersteuning</li>
                   <li>
@@ -78,7 +89,7 @@ const OnsTeam = () => {
                 </ul>
               </div>
             </Card>
-          </div>
+          </TextAnimationWrapper>
         </div>
       </div>
     </div>

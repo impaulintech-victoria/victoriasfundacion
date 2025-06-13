@@ -1,6 +1,7 @@
 'use client'
 
 import Card from '@/components/common/Card'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -54,9 +55,21 @@ const ContactFormSection = () => {
   }
 
   return (
-    <section className='flex sm:flex-row flex-col justify-center items-start gap-5 md:gap-7 lg:gap-14 px-5 sm:px-10 md:px-14 lg:px-20 2xl:px-44 py-9 md:py-18 w-full'>
-      <ContactFormCard form={form} onSubmit={onSubmit} />
-      <ContactInfoSection />
+    <section className='flex sm:flex-row flex-col justify-center items-start self-center gap-5 md:gap-7 lg:gap-14 px-5 sm:px-10 md:px-14 lg:px-20 2xl:px-44 py-9 md:py-18 w-full'>
+      <TextAnimationWrapper
+        delay={0}
+        animation='fade-up'
+        className='flex-[2] justify-center items-center self-center w-full'
+      >
+        <ContactFormCard form={form} onSubmit={onSubmit} />
+      </TextAnimationWrapper>
+      <TextAnimationWrapper
+        delay={200}
+        animation='fade-up'
+        className='flex-[1] justify-center w-full'
+      >
+        <ContactInfoSection />
+      </TextAnimationWrapper>
     </section>
   )
 }
@@ -71,7 +84,7 @@ function ContactFormCard({
   onSubmit: (values: z.infer<typeof formSchema>) => void
 }) {
   return (
-    <Card className='flex flex-col sm:flex-[2] gap-5 border border-muted/30 w-full xl:max-w-3xl'>
+    <Card className='flex flex-col gap-5 border border-muted/30 w-full xl:max-w-3xl'>
       <h2 className='font-bold text-primary text-xl md:text-2xl 2xl:text-3xl'>
         Stuur ons een bericht
       </h2>
@@ -163,7 +176,7 @@ function ContactFormCard({
 
 function ContactInfoSection() {
   return (
-    <section className='flex flex-col sm:flex-[1] gap-5 px-3'>
+    <section className='flex flex-col gap-5 px-3'>
       <div className='flex flex-col gap-2'>
         <h3 className='font-bold text-primary text-lg md:text-xl 2xl:text-2xl'>
           Contactgegevens

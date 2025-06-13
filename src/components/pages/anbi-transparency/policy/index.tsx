@@ -1,4 +1,5 @@
 import Card from '@/components/common/Card'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import { Button } from '@/components/ui/button'
 import { Calendar, FileText, LucideIcon, Wallet } from 'lucide-react'
 import { ReactNode } from 'react'
@@ -7,12 +8,17 @@ interface PolicyCardProps {
   icon: LucideIcon
   heading: string
   children?: ReactNode
+  delay?: number
 }
 
 const PolicySection = () => {
   return (
     <section className='flex flex-col self-center gap-5 px-9 py-7 md:py-10 lg:py-14 xl:py-16 w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl'>
-      <PolicyCard icon={FileText} heading='Hoofdlijnen van het beleidsplan'>
+      <PolicyCard
+        icon={FileText}
+        heading='Hoofdlijnen van het beleidsplan'
+        delay={0}
+      >
         <ul className='space-y-2 text-muted text-sm md:text-base xl:text-lg list-none'>
           <li className="flex items-start gap-2 before:font-bold before:text-primary before:content-['•']">
             Begeleiding van mensen uit de bijstand naar werk en zelfstandigheid
@@ -38,7 +44,7 @@ const PolicySection = () => {
           </p>
         </Button>
       </PolicyCard>
-      <PolicyCard icon={Wallet} heading='Beloningsbeleid'>
+      <PolicyCard icon={Wallet} heading='Beloningsbeleid' delay={200}>
         <p className='text-muted text-sm md:text-base xl:text-lg'>
           De bestuursleden ontvangen geen beloning voor hun werkzaamheden.
           Eventuele gemaakte kosten worden vergoed op declaratiebasis.
@@ -49,6 +55,7 @@ const PolicySection = () => {
       <PolicyCard
         icon={Calendar}
         heading='Verslag van de uitgeoefende activiteiten'
+        delay={400}
       >
         <section className='flex flex-col gap-2'>
           <h3 className='font-bold text-primary text-sm md:text-base xl:text-lg'>
@@ -79,16 +86,23 @@ const PolicySection = () => {
 
 export default PolicySection
 
-function PolicyCard({ icon: Icon, heading, children }: PolicyCardProps) {
+function PolicyCard({
+  icon: Icon,
+  heading,
+  children,
+  delay = 0,
+}: PolicyCardProps) {
   return (
-    <Card className='flex flex-col gap-5 shadow-md md:px-8 2xl:px-12 xl:px-10 md:py-8 2xl:py-12 xl:py-10'>
-      <div className='flex flex-row gap-3'>
-        <Icon className='size-5 text-primary' />
-        <p className='font-bold text-primary text-sm md:text-base xl:text-lg 2xl:text-xl'>
-          {heading}
-        </p>
-      </div>
-      {children}
-    </Card>
+    <TextAnimationWrapper delay={delay} animation='fade-up'>
+      <Card className='flex flex-col gap-5 shadow-md md:px-8 2xl:px-12 xl:px-10 md:py-8 2xl:py-12 xl:py-10'>
+        <div className='flex flex-row gap-3'>
+          <Icon className='size-5 text-primary' />
+          <p className='font-bold text-primary text-sm md:text-base xl:text-lg 2xl:text-xl'>
+            {heading}
+          </p>
+        </div>
+        {children}
+      </Card>
+    </TextAnimationWrapper>
   )
 }

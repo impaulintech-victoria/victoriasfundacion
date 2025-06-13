@@ -1,4 +1,7 @@
+'use client'
+
 import TransparencyHeroSection from '@/components/common/Hero'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import PolicySection from '@/components/pages/anbi-transparency/policy'
 
 const AnbiTransparency = () => {
@@ -14,7 +17,13 @@ const AnbiTransparency = () => {
         version='secondary'
         showSubtitleOnMobile={true}
       />
-      <PolicySection />
+      <TextAnimationWrapper
+        delay={300}
+        animation='fade-up'
+        className='flex justify-center items-center w-full'
+      >
+        <PolicySection />
+      </TextAnimationWrapper>
     </div>
   )
 }

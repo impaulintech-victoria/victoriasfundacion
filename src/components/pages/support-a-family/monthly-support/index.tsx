@@ -1,99 +1,111 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
 
 const MonthlySupportSection = () => {
-  const supportAmounts = [10, 25, 50, 100];
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+  const supportAmounts = [10, 25, 50, 100]
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
 
   const handleDonate = () => {
     if (selectedAmount) {
       // TODO: Replace with actual donation URL
-      window.open(
-        `https://donation-url.com?amount=${selectedAmount}`,
-        "_blank"
-      );
+      window.open(`https://donation-url.com?amount=${selectedAmount}`, '_blank')
     }
-  };
+  }
 
   return (
-    <section className="flex md:flex-row flex-col gap-4 md:gap-10 px-4 lg:px-14 2xl:px-40 xl:px-20 py-7 lg:py-10 2xl:py-20 xl:py-16 w-full">
-      <div className="flex flex-col flex-[1] justify-center items-center gap-5 w-full">
-        <TestimonialCard
-          quote='"Dankzij de steun van de stichting hebben we weer hoop voor de
-      toekomst. Het voelt alsof we er niet meer alleen voor staan."'
-          author="Een ondersteund gezin"
-        />
-        <TestimonialCard
-          quote='"Door uw steun hebben we hoop voor de toekomst en voelen we ons niet meer alleen."'
-          author="Een dankbaar gezin voor de steun."
-        />
+    <section className='flex md:flex-row flex-col gap-4 md:gap-10 px-4 lg:px-14 2xl:px-40 xl:px-20 py-7 lg:py-10 2xl:py-20 xl:py-16 w-full'>
+      <div className='flex flex-col flex-[1] justify-center items-center gap-5 w-full'>
+        <TextAnimationWrapper delay={0} animation='fade-up'>
+          <TestimonialCard
+            quote='"Dankzij de steun van de stichting hebben we weer hoop voor de
+        toekomst. Het voelt alsof we er niet meer alleen voor staan."'
+            author='Een ondersteund gezin'
+          />
+        </TextAnimationWrapper>
+        <TextAnimationWrapper delay={200} animation='fade-up'>
+          <TestimonialCard
+            quote='"Door uw steun hebben we hoop voor de toekomst en voelen we ons niet meer alleen."'
+            author='Een dankbaar gezin voor de steun.'
+          />
+        </TextAnimationWrapper>
       </div>
-      <div className="flex flex-col flex-[1] gap-2 mt-5 w-full">
-        <h1 className="font-bold text-primary text-2xl lg:text-3xl 2xl:text-4xl">
-          Word Maandelijkse Donateur
-        </h1>
-        <p className="text-muted text-sm lg:text-base 2xl:text-lg">
-          Met uw structurele steun kunnen we duurzame hulp bieden en de toekomst
-          van gezinnen veiligstellen.
-        </p>
-        <div className="gap-3 grid grid-cols-2 mt-5">
-          {supportAmounts.map((amount) => (
-            <MonthlySupportCard
-              key={amount}
-              amount={amount}
-              isSelected={selectedAmount === amount}
-              onClick={() => setSelectedAmount(amount)}
-            />
-          ))}
-        </div>
-        <Button
-          variant={"default"}
-          className="mt-3 xl:py-6 xl:text-lg cursor-pointer"
-          onClick={handleDonate}
-          disabled={!selectedAmount}
-        >
-          Doneer Maandelijks
-        </Button>
+      <div className='flex flex-col flex-[1] gap-2 mt-5 w-full'>
+        <TextAnimationWrapper delay={400} animation='fade-up'>
+          <h1 className='font-bold text-primary text-2xl lg:text-3xl 2xl:text-4xl'>
+            Word Maandelijkse Donateur
+          </h1>
+        </TextAnimationWrapper>
+        <TextAnimationWrapper delay={500} animation='fade-up'>
+          <p className='text-muted text-sm lg:text-base 2xl:text-lg'>
+            Met uw structurele steun kunnen we duurzame hulp bieden en de
+            toekomst van gezinnen veiligstellen.
+          </p>
+        </TextAnimationWrapper>
+        <TextAnimationWrapper delay={600} animation='fade-up'>
+          <div className='gap-3 grid grid-cols-2 mt-5'>
+            {supportAmounts.map((amount, index) => (
+              <MonthlySupportCard
+                key={amount}
+                amount={amount}
+                isSelected={selectedAmount === amount}
+                onClick={() => setSelectedAmount(amount)}
+                delay={700 + index * 100}
+              />
+            ))}
+          </div>
+        </TextAnimationWrapper>
+        <TextAnimationWrapper delay={1100} animation='fade-up'>
+          <Button
+            variant={'default'}
+            className='mt-3 xl:py-6 xl:text-lg cursor-pointer'
+            onClick={handleDonate}
+            disabled={!selectedAmount}
+          >
+            Doneer Maandelijks
+          </Button>
+        </TextAnimationWrapper>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MonthlySupportSection;
+export default MonthlySupportSection
 
 function MonthlySupportCard(props: {
-  amount: number;
-  isSelected: boolean;
-  onClick: () => void;
+  amount: number
+  isSelected: boolean
+  onClick: () => void
+  delay?: number
 }) {
   return (
     <section
       className={`flex flex-col justify-center items-center gap-2 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
         props.isSelected
-          ? "border-primary bg-primary/10"
-          : "border-black hover:border-primary"
+          ? 'border-primary bg-primary/10'
+          : 'border-black hover:border-primary'
       }`}
       onClick={props.onClick}
     >
-      <h2 className="font-black text-primary text-2xl xl:text-3xl">
+      <h2 className='font-black text-primary text-2xl xl:text-3xl'>
         €{props.amount}
       </h2>
-      <p className="text-muted text-sm xl:text-base">per maand</p>
+      <p className='text-muted text-sm xl:text-base'>per maand</p>
     </section>
-  );
+  )
 }
 
 function TestimonialCard(props: { quote: string; author: string }) {
   return (
-    <section className="flex flex-col justify-center items-center gap-5 p-4 lg:p-6 2xl:p-8 border-2 border-muted rounded-lg w-full max-w-xs md:max-w-sm lg:max-w-md 2xl:max-w-xl">
-      <p className="text-muted text-sm lg:text-base xl:text-lg 2xl:text-2xl text-center">
+    <section className='flex flex-col justify-center items-center gap-5 p-4 lg:p-6 2xl:p-8 border-2 border-muted rounded-lg w-full max-w-xs md:max-w-sm lg:max-w-md 2xl:max-w-xl'>
+      <p className='text-muted text-sm lg:text-base xl:text-lg 2xl:text-2xl text-center'>
         {props.quote}
       </p>
-      <p className="text-muted text-xs lg:text-sm 2xl:text-lg text-center">
+      <p className='text-muted text-xs lg:text-sm 2xl:text-lg text-center'>
         {props.author}
       </p>
     </section>
-  );
+  )
 }

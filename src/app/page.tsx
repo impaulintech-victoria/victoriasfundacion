@@ -1,4 +1,7 @@
+'use client'
+
 import AchievementsSection from '@/components/common/Achievement'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import HeroLandingContainer from '@/components/pages/home/hero'
 import MissionLandingContainer from '@/components/pages/home/mission'
 
@@ -23,18 +26,23 @@ export default function Home() {
       comingSoon: false,
     },
   ]
+
   return (
     <div id='main-container' className='flex flex-col w-full'>
       <HeroLandingContainer />
-      <MissionLandingContainer />
-      <AchievementsSection
-        bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
-        bgImageAlt='achievement-bg'
-        sectionTagline='Wat we bereiken'
-        sectionTitle='Onze Impact'
-        sectionSubtitle='Samen maken we het verschil voor gezinnen die onze steun het hardst nodig hebben.'
-        achievements={achievements}
-      />
+      <TextAnimationWrapper delay={300}>
+        <MissionLandingContainer />
+      </TextAnimationWrapper>
+      <TextAnimationWrapper delay={600}>
+        <AchievementsSection
+          bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
+          bgImageAlt='achievement-bg'
+          sectionTagline='Wat we bereiken'
+          sectionTitle='Onze Impact'
+          sectionSubtitle='Samen maken we het verschil voor gezinnen die onze steun het hardst nodig hebben.'
+          achievements={achievements}
+        />
+      </TextAnimationWrapper>
     </div>
   )
 }

@@ -1,5 +1,8 @@
+'use client'
+
 import FoundationHeroSection from '@/components/common/Hero'
 import FoundationMissionSection from '@/components/common/Mission'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 
 const OverDeStichting = () => {
   const imgClassName =
@@ -11,20 +14,24 @@ const OverDeStichting = () => {
         backgroundImg='/assets/images/about-the-foundation/foundation-bg-image.png'
         height='sm'
       />
-      <FoundationMissionSection
-        imageSrc='/assets/images/about-the-foundation/mission/mission-1.png'
-        header='Onze Missie en Visie'
-        description="Stichting Victoria's Origen is toegewijd aan het ondersteunen en versterken van gezinnen in kwetsbare situaties. Wij geloven dat elk gezin de kans verdient op een stabiele en hoopvolle toekomst. Onze missie is om praktische hulp, emotionele ondersteuning en duurzame oplossingen te bieden die gezinnen helpen hun eigen kracht te (her)vinden."
-        reverseOnDesktop={false}
-        customImageClassName={imgClassName}
-      />
-      <FoundationMissionSection
-        imageSrc='/assets/images/about-the-foundation/mission/mission-2.png'
-        header='Onze Aanpak'
-        description={`We werken nauw samen met gezinnen om hun specifieke behoeften te begrijpen en bieden op maat gemaakte ondersteuning. Dit kan variëren van materiële hulp en budgetbegeleiding tot opvoedingsondersteuning en het verbinden met andere hulpbronnen in de gemeenschap. Transparantie, respect en vertrouwen staan centraal in onze werkwijze.\n\nWaarom Victoria's Origen?\n\nDe naam "Victoria's Origen" weerspiegelt onze kernwaarden: "Victoria" staat voor overwinning en veerkracht, terwijl "Origen" verwijst naar de oorsprong, de basis – het gezin. Wij streven ernaar gezinnen te helpen hun basis te versterken en uitdagingen te overwinnen.`}
-        reverseOnDesktop={true}
-        customImageClassName={imgClassName}
-      />
+      <TextAnimationWrapper delay={300} animation='fade-up'>
+        <FoundationMissionSection
+          imageSrc='/assets/images/about-the-foundation/mission/mission-1.png'
+          header='Onze Missie en Visie'
+          description="Stichting Victoria's Origen is toegewijd aan het ondersteunen en versterken van gezinnen in kwetsbare situaties. Wij geloven dat elk gezin de kans verdient op een stabiele en hoopvolle toekomst. Onze missie is om praktische hulp, emotionele ondersteuning en duurzame oplossingen te bieden die gezinnen helpen hun eigen kracht te (her)vinden."
+          reverseOnDesktop={false}
+          customImageClassName={imgClassName}
+        />
+      </TextAnimationWrapper>
+      <TextAnimationWrapper delay={600} animation='fade-up'>
+        <FoundationMissionSection
+          imageSrc='/assets/images/about-the-foundation/mission/mission-2.png'
+          header='Onze Aanpak'
+          description={`We werken nauw samen met gezinnen om hun specifieke behoeften te begrijpen en bieden op maat gemaakte ondersteuning. Dit kan variëren van materiële hulp en budgetbegeleiding tot opvoedingsondersteuning en het verbinden met andere hulpbronnen in de gemeenschap. Transparantie, respect en vertrouwen staan centraal in onze werkwijze.\n\nWaarom Victoria's Origen?\n\nDe naam "Victoria's Origen" weerspiegelt onze kernwaarden: "Victoria" staat voor overwinning en veerkracht, terwijl "Origen" verwijst naar de oorsprong, de basis – het gezin. Wij streven ernaar gezinnen te helpen hun basis te versterken en uitdagingen te overwinnen.`}
+          reverseOnDesktop={true}
+          customImageClassName={imgClassName}
+        />
+      </TextAnimationWrapper>
     </div>
   )
 }

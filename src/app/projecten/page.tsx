@@ -2,6 +2,7 @@
 
 import AchievementsSection from '@/components/common/Achievement'
 import ProjectHeroSection from '@/components/common/Hero'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 
 const Projecten = () => {
   const achievements = [
@@ -49,12 +50,14 @@ const Projecten = () => {
         backgroundImg='/assets/images/project/hero-image.png'
         height='sm'
       />
-      <AchievementsSection
-        bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
-        bgImageAlt='achievement-bg'
-        version='secondary'
-        achievements={achievements}
-      />
+      <TextAnimationWrapper delay={300} animation='fade-up'>
+        <AchievementsSection
+          bgImageSrc='/assets/images/landing/achievements/landing-achievement-bg.png'
+          bgImageAlt='achievement-bg'
+          version='secondary'
+          achievements={achievements}
+        />
+      </TextAnimationWrapper>
     </div>
   )
 }

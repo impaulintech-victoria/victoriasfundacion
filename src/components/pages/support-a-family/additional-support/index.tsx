@@ -1,5 +1,6 @@
 import Card from '@/components/common/Card'
 import FadedBgImage from '@/components/common/FadedBgImage'
+import TextAnimationWrapper from '@/components/others/textAnimationWrapper'
 import { Button } from '@/components/ui/button'
 
 const AdditionalSupportSection = () => {
@@ -44,18 +45,32 @@ const AdditionalSupportSection = () => {
         className='z-0'
       />
       <div className='z-20 flex flex-col justify-center items-center gap-5 px-5 lg:px-10 2xl:px-48 xl:px-32 py-10 lg:py-14 2xl:py-24 xl:py-20'>
-        <h1 className='z-20 font-bold text-primary text-2xl lg:text-3xl'>
-          Andere Manieren om te Steunen
-        </h1>
+        <TextAnimationWrapper delay={0} animation='fade-up'>
+          <h1 className='z-20 font-bold text-primary text-2xl lg:text-3xl'>
+            Andere Manieren om te Steunen
+          </h1>
+        </TextAnimationWrapper>
         <section className='flex flex-col gap-5 sm:grid sm:grid-cols-3 mt-5 w-full'>
           {/* First row: first three cards */}
-          {additionalSupportCards.slice(0, 3).map((card) => (
-            <AdditionalSupportCard key={card.title} {...card} />
+          {additionalSupportCards.slice(0, 3).map((card, index) => (
+            <TextAnimationWrapper
+              key={card.title}
+              delay={200 + index * 200}
+              animation='fade-up'
+            >
+              <AdditionalSupportCard {...card} />
+            </TextAnimationWrapper>
           ))}
           {/* Second row: last two cards, side by side on desktop */}
           <div className='flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:col-span-3 w-full'>
-            {additionalSupportCards.slice(3).map((card) => (
-              <AdditionalSupportCard key={card.title} {...card} />
+            {additionalSupportCards.slice(3).map((card, index) => (
+              <TextAnimationWrapper
+                key={card.title}
+                delay={800 + index * 200}
+                animation='fade-up'
+              >
+                <AdditionalSupportCard {...card} />
+              </TextAnimationWrapper>
             ))}
           </div>
         </section>
