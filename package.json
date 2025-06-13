@@ -39,6 +39,8 @@
     "next": "15.3.3",
     "next-intl": "^4.1.0",
     "postcss": "^8.5.4",
+    "posthog-js": "^1.252.0",
+    "posthog-node": "^5.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0",
