@@ -15,6 +15,7 @@ interface HeroProps {
   height?: 'lg' | 'sm'
   version?: 'primary' | 'secondary'
   subTitle?: string
+  showSubtitleOnMobile?: boolean
 }
 
 const HeroSection = (props: HeroProps) => {
@@ -30,6 +31,7 @@ const HeroSection = (props: HeroProps) => {
     height = 'lg',
     version = 'primary',
     subTitle,
+    showSubtitleOnMobile = false,
   } = props
 
   return (
@@ -55,7 +57,11 @@ const HeroSection = (props: HeroProps) => {
       >
         {subTitle && (
           <p
-            className={`hidden uppercase 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-bold ${
+            className={`${
+              showSubtitleOnMobile
+                ? 'block text-xs sm:text-sm lg:text-base xl:text-lg'
+                : 'hidden'
+            } uppercase 2xl:block 2xl:max-w-[800px] sm:max-w-md max-w-lg md:max-w-lg lg:max-w-lg font-bold ${
               version === 'primary' ? 'text-white' : 'text-primary'
             }  text-xl leading-10 ${
               position === 'left'
