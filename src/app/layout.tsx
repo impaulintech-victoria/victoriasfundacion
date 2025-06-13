@@ -65,7 +65,11 @@ export default async function RootLayout({
   const locale = await getLocale()
 
   return (
-    <html lang={locale} className={`bg-base text-primary ${overlock.variable}`}>
+    <html
+      lang={locale}
+      className={`bg-base text-primary ${overlock.variable}`}
+      suppressHydrationWarning
+    >
       <body className='font-overlock antialiased'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
